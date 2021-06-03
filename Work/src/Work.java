@@ -175,12 +175,16 @@ public class Work implements WorkConstants {
         case LITERALS:
           ATRIBUICAO();
           break;
+        case TIPO:
+          IDENTIFICADOR();
+          break;
         default:
           jj_la1[7] = jj_gen;
           jj_consume_token(-1);
           throw new ParseException();
         }
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+        case TIPO:
         case LITERALS:
         case WHILE:
           ;
@@ -205,6 +209,7 @@ public class Work implements WorkConstants {
       label_6:
       while (true) {
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+        case TIPO:
         case LITERALS:
         case WHILE:
           ;
@@ -326,7 +331,7 @@ public class Work implements WorkConstants {
       jj_la1_init_1();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0x101020,0x101020,0x100000,0x100000,0x0,0x0,0x0,0x100000,0x100000,0x100000,0x100000,0x200000,0x100000,0x100000,};
+      jj_la1_0 = new int[] {0x101020,0x101020,0x100000,0x100000,0x0,0x0,0x0,0x101000,0x101000,0x101000,0x100000,0x200000,0x100000,0x100000,};
    }
    private static void jj_la1_init_1() {
       jj_la1_1 = new int[] {0x20,0x20,0x10,0x10,0x10,0x18,0x18,0x20,0x20,0x20,0x0,0x0,0x4,0x4,};

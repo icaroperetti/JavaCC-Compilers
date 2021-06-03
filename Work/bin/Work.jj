@@ -127,7 +127,7 @@ void IDENTIFICADOR(): { }
 void COMANDO():
 {}
 {
-  (WHILE() | ATRIBUICAO())+
+  (WHILE() | ATRIBUICAO() | IDENTIFICADOR())+
 }
 
 void WHILE():
@@ -158,7 +158,7 @@ void EXP_ARITMETICA():
 void TERMO():
 { }
 {
-  (  < VALUES > | < LITERALS >)
+  ( < VALUES > | < LITERALS > )
 }
 
 /*
