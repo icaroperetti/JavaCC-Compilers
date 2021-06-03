@@ -41,43 +41,39 @@ public interface WorkConstants {
   /** RegularExpression Id. */
   int LITERALS = 20;
   /** RegularExpression Id. */
-  int OPERADORES_ARITIMETICOS = 21;
+  int OPER_ARITMETICO = 21;
   /** RegularExpression Id. */
-  int ADICAO = 22;
+  int OPER_RELACIONAL = 22;
   /** RegularExpression Id. */
-  int SUBTRACAO = 23;
+  int FUNCTION = 23;
   /** RegularExpression Id. */
-  int MULTIPLICACAO = 24;
+  int BOOL = 24;
   /** RegularExpression Id. */
-  int DIVISAO = 25;
+  int TRUE = 25;
   /** RegularExpression Id. */
-  int FUNCTION = 26;
+  int FALSE = 26;
   /** RegularExpression Id. */
-  int BOOL = 27;
+  int ABRE_PARENTESES = 27;
   /** RegularExpression Id. */
-  int TRUE = 28;
+  int FECHA_PARENTESES = 28;
   /** RegularExpression Id. */
-  int FALSE = 29;
+  int ABRE_CHAVES = 29;
   /** RegularExpression Id. */
-  int ABRE_PARENTESES = 30;
+  int FECHA_CHAVES = 30;
   /** RegularExpression Id. */
-  int FECHA_PARENTESES = 31;
+  int IF = 31;
   /** RegularExpression Id. */
-  int ABRE_CHAVES = 32;
+  int ELSE = 32;
   /** RegularExpression Id. */
-  int FECHA_CHAVES = 33;
+  int ELSEIF = 33;
   /** RegularExpression Id. */
-  int IF = 34;
+  int VALUES = 34;
   /** RegularExpression Id. */
-  int ELSE = 35;
+  int ATRIBUICAO = 35;
   /** RegularExpression Id. */
-  int ELSEIF = 36;
+  int VIRGULA = 36;
   /** RegularExpression Id. */
-  int VALUES = 37;
-  /** RegularExpression Id. */
-  int ATRIBUICAO = 38;
-  /** RegularExpression Id. */
-  int VIRGULA = 39;
+  int WHILE = 37;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -105,11 +101,8 @@ public interface WorkConstants {
     "\"boolean\"",
     "\"char\"",
     "<LITERALS>",
-    "<OPERADORES_ARITIMETICOS>",
-    "\"+\"",
-    "\"-\"",
-    "\"*\"",
-    "\"/\"",
+    "<OPER_ARITMETICO>",
+    "<OPER_RELACIONAL>",
     "\"function\"",
     "<BOOL>",
     "\"true\"",
@@ -124,6 +117,7 @@ public interface WorkConstants {
     "<VALUES>",
     "\"=\"",
     "\",\"",
+    "\"while(\"",
   };
 
 }

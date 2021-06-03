@@ -63,54 +63,57 @@ TOKEN:
 	< #CHAR : "char" >
 }
 
-//7
+
 TOKEN: { < LITERALS: < LETTER >(< LETTER >|< DIGIT >|"_")* > }
 
-//8
-TOKEN : { < OPERADORES_ARITIMETICOS : ( < ADICAO > | < SUBTRACAO > | < MULTIPLICACAO > | < DIVISAO > ) > |
-	< #ADICAO: "+" > | < #SUBTRACAO: "-" > | < #MULTIPLICACAO: "*" > | < #DIVISAO: "/" > 
-}
 
-//9
+TOKEN: { < OPER_ARITMETICO :("+" | "-" |"*"|"/" )>}
+
+TOKEN: { < OPER_RELACIONAL :(">" | "<" |"=="|"!=" )>}
+
 TOKEN: { < FUNCTION: "function" > }
 
-//10
+
 TOKEN: {< BOOL:(< TRUE >|< FALSE >) > | < #TRUE:"true" > | < #FALSE:"false" >}
 
-//11
+
 TOKEN : { < ABRE_PARENTESES : "(" >  }
 TOKEN : { < FECHA_PARENTESES : ")" >  }
 
-//12
+
 TOKEN : { < ABRE_CHAVES : "{" >  }
 TOKEN : { < FECHA_CHAVES : "}" >  }
 
 
-//6 condições
 TOKEN : { < IF : "if" > }
 
-//7
+
 TOKEN : { < ELSE : "else" > }
 TOKEN : { < ELSEIF : "elseif" > }
 
 		//numericos								//String entre aspas
 TOKEN: { < VALUES: < DIGIT >(< DIGIT >)* | "\""< LETTER >(< LETTER >|< DIGIT >|"_")*"\"" > } 
 
-//8
+
 TOKEN : { < ATRIBUICAO : "=" > }
 
-//9
+
 TOKEN : { < VIRGULA : "," > }
+
+
+
+TOKEN: { < WHILE: "while(" > }
+
 
 void Start() : {} { (INSTRUCOES()) < EOF > }
 
 void INSTRUCOES():
 { }
 {
-  (IDENTIFICADOR() | < SINGLE_LINE >)*
+  (IDENTIFICADOR() | < SINGLE_LINE > | COMANDO())*
 }
 
-
+//---------------DECLARAR VÁRIAVEIS ------------------------------------------------
 void  DECLARAR_VARIAVEL(): { } { (< LITERALS > | < VIRGULA > DECLARAR_VARIAVEL())+ }
 
 void ATRIBUICAO_VARIAVEL(): { } { < VALUES >(< VIRGULA > < LITERALS > < ATRIBUICAO > < VALUES >)* }
@@ -121,9 +124,58 @@ void IDENTIFICADOR(): { }
 }
 
 
+void COMANDO():
+{}
+{
+  (WHILE() | ATRIBUICAO())+
+}
+
+void WHILE():
+{}
+{
+   < WHILE >EXP_BOOL() < FECHA_PARENTESES > < ABRE_CHAVES >(COMANDO())* < FECHA_CHAVES >		
+
+}
+
+void ATRIBUICAO():
+{ }
+{
+  (VARIAVEL()< ATRIBUICAO >EXP_ARITMETICA()< EOL >)+
+}
+
+void EXP_BOOL():
+{ }
+{
+  EXP_ARITMETICA()< OPER_RELACIONAL >EXP_ARITMETICA()
+}
+
+void EXP_ARITMETICA():
+{}
+{
+  (TERMO()(< OPER_ARITMETICO >TERMO())*)+
+}
+
+void TERMO():
+{ }
+{
+  (  NUMERO() | VARIAVEL())
+}
+
+void NUMERO():
+{}
+{
+  < VALUES >(NUMERO())*
+}
+
+void VARIAVEL():
+{ }
+{
+  < LITERALS >(VARIAVEL())*
+}
 
 
 
+  
 
 
 
