@@ -21,11 +21,14 @@ eclipse.preferences.version=1
  - [x] Declaração de variável
  - [ ] Comandos de repetição
  - [ ] Comandos de decisão
+ - [ ] Saída de dados 
  - [ ] saída de dados 
 
 > ### Extras
 
  - [ ] Switch
  - [ ] Do While
+ - [ ] If inline /decisão ternária
+ - [ ] Comando inovador complexo
  - [ ] if inline /decisão ternária
  - [ ] comando inovador complexo
