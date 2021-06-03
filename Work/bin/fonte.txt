@@ -1,3 +1,16 @@
+<<<<<<< HEAD
 int a = 1;
 double b = 2, c=0;
 //teste
+=======
+int a= 2, b = 3;
+double c,d,e;
+//teste
+
+while(k < 10){
+	while(j<5){
+		k = j+5;
+		j = j+1;
+	}
+}
+>>>>>>> 0b102f7eefe8edc8ad3a59652f0460333d1e938b
