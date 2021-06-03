@@ -3,22 +3,18 @@ import java.io.FileInputStream;
 import java.io.File;
 import java.io.IOException;
 public class Work implements WorkConstants {
- public static void main(String args []) throws ParseException
- {
- try
- {
- System.out.println("Lendo arquivo fonte...");
- FileInputStream fis = new FileInputStream(new File("..//Work//src//fonte.txt"));
- Work parser = new Work(fis);
- parser.Start();
- System.out.println("Arquivo fonte processado corretamente!");
- }
- catch (IOException e)
- {
- System.out.println("Falha ao abrir arquivo fonte.");
- System.exit(0);
- }
- }
+        public static void main(String args []) throws ParseException {
+                try {
+                        System.out.println("Lendo arquivo fonte...");
+                        FileInputStream fis = new FileInputStream(new File("..//Work//src//fonte.txt"));
+                        Work parser = new Work(fis);
+                        parser.Start();
+                        System.out.println("Arquivo fonte processado corretamente!");
+                } catch (IOException e) {
+                        System.out.println("Falha ao abrir arquivo fonte.");
+                        System.exit(0);
+                }
+        }
 
   final public void Start() throws ParseException {
     trace_call("Start");
