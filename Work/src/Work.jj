@@ -140,7 +140,7 @@ void WHILE():
 void ATRIBUICAO():
 { }
 {
-  (VARIAVEL()< ATRIBUICAO >EXP_ARITMETICA()< EOL >)+
+  (< LITERALS > < ATRIBUICAO >EXP_ARITMETICA()< EOL >)+
 }
 
 void EXP_BOOL():
@@ -158,18 +158,21 @@ void EXP_ARITMETICA():
 void TERMO():
 { }
 {
-  (  NUMERO() | VARIAVEL())
+  (  < VALUES > | < LITERALS >)
 }
 
+/*
 void NUMERO():
 {}
 {
   < VALUES >(NUMERO())*
 }
+*/
 
+/*
 void VARIAVEL():
 { }
 {
   < LITERALS >(VARIAVEL())*
 }
-
+*/

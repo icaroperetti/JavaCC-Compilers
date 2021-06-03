@@ -226,7 +226,7 @@ public class Work implements WorkConstants {
     try {
       label_7:
       while (true) {
-        VARIAVEL();
+        jj_consume_token(LITERALS);
         jj_consume_token(ATRIBUICAO);
         EXP_ARITMETICA();
         jj_consume_token(EOL);
@@ -294,10 +294,10 @@ public class Work implements WorkConstants {
     try {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case VALUES:
-        NUMERO();
+        jj_consume_token(VALUES);
         break;
       case LITERALS:
-        VARIAVEL();
+        jj_consume_token(LITERALS);
         break;
       default:
         jj_la1[13] = jj_gen;
@@ -306,48 +306,6 @@ public class Work implements WorkConstants {
       }
     } finally {
       trace_return("TERMO");
-    }
-  }
-
-  final public void NUMERO() throws ParseException {
-    trace_call("NUMERO");
-    try {
-      jj_consume_token(VALUES);
-      label_10:
-      while (true) {
-        switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-        case VALUES:
-          ;
-          break;
-        default:
-          jj_la1[14] = jj_gen;
-          break label_10;
-        }
-        NUMERO();
-      }
-    } finally {
-      trace_return("NUMERO");
-    }
-  }
-
-  final public void VARIAVEL() throws ParseException {
-    trace_call("VARIAVEL");
-    try {
-      jj_consume_token(LITERALS);
-      label_11:
-      while (true) {
-        switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-        case LITERALS:
-          ;
-          break;
-        default:
-          jj_la1[15] = jj_gen;
-          break label_11;
-        }
-        VARIAVEL();
-      }
-    } finally {
-      trace_return("VARIAVEL");
     }
   }
 
@@ -360,7 +318,7 @@ public class Work implements WorkConstants {
   public Token jj_nt;
   private int jj_ntk;
   private int jj_gen;
-  final private int[] jj_la1 = new int[16];
+  final private int[] jj_la1 = new int[14];
   static private int[] jj_la1_0;
   static private int[] jj_la1_1;
   static {
@@ -368,10 +326,10 @@ public class Work implements WorkConstants {
       jj_la1_init_1();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0x101020,0x101020,0x100000,0x100000,0x0,0x0,0x0,0x100000,0x100000,0x100000,0x100000,0x200000,0x100000,0x100000,0x0,0x100000,};
+      jj_la1_0 = new int[] {0x101020,0x101020,0x100000,0x100000,0x0,0x0,0x0,0x100000,0x100000,0x100000,0x100000,0x200000,0x100000,0x100000,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0x20,0x20,0x10,0x10,0x10,0x18,0x18,0x20,0x20,0x20,0x0,0x0,0x4,0x4,0x4,0x0,};
+      jj_la1_1 = new int[] {0x20,0x20,0x10,0x10,0x10,0x18,0x18,0x20,0x20,0x20,0x0,0x0,0x4,0x4,};
    }
 
   /** Constructor with InputStream. */
@@ -385,7 +343,7 @@ public class Work implements WorkConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 16; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 14; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -399,7 +357,7 @@ public class Work implements WorkConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 16; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 14; i++) jj_la1[i] = -1;
   }
 
   /** Constructor. */
@@ -409,7 +367,7 @@ public class Work implements WorkConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 16; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 14; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -419,7 +377,7 @@ public class Work implements WorkConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 16; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 14; i++) jj_la1[i] = -1;
   }
 
   /** Constructor with generated Token Manager. */
@@ -428,7 +386,7 @@ public class Work implements WorkConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 16; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 14; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -437,7 +395,7 @@ public class Work implements WorkConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 16; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 14; i++) jj_la1[i] = -1;
   }
 
   private Token jj_consume_token(int kind) throws ParseException {
@@ -495,7 +453,7 @@ public class Work implements WorkConstants {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
     }
-    for (int i = 0; i < 16; i++) {
+    for (int i = 0; i < 14; i++) {
       if (jj_la1[i] == jj_gen) {
         for (int j = 0; j < 32; j++) {
           if ((jj_la1_0[i] & (1<<j)) != 0) {
