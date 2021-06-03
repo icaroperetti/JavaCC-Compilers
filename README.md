@@ -22,6 +22,7 @@ eclipse.preferences.version=1
  - [ ] Comandos de repetição
  - [ ] Comandos de decisão
  - [ ] Saída de dados 
+ - [ ] saída de dados 
 
 > ### Extras
 
@@ -29,3 +30,5 @@ eclipse.preferences.version=1
  - [ ] Do While
  - [ ] If inline /decisão ternária
  - [ ] Comando inovador complexo
+ - [ ] if inline /decisão ternária
+ - [ ] comando inovador complexo
