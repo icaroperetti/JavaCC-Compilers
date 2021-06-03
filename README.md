@@ -14,3 +14,18 @@ RUNTIME_JTBJAR=C\:/Users/<your_user>/.p2/pool/plugins/sf.eclipse.javacc_1.5.33/j
 SUPPRESS_WARNINGS=false
 eclipse.preferences.version=1
 ```
+
+> ### O que já foi feito ?
+
+ - [x] Comentário (//)
+ - [x] Declaração de variável
+ - [ ] Comandos de repetição
+ - [ ] Comandos de decisão
+ - [ ] Saída de dados 
+
+> ### Extras
+
+ - [ ] Switch
+ - [ ] Do While
+ - [ ] If inline /decisão ternária
+ - [ ] Comando inovador complexo
