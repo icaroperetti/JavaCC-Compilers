@@ -1,0 +1,131 @@
+options 
+{
+ DEBUG_PARSER=true;
+ static = false; 
+} 
+PARSER_BEGIN(Work) 
+ 
+import java.io.FileInputStream; 
+import java.io.File; 
+import java.io.IOException; 
+public class Work 
+{
+ public static void main(String args []) throws ParseException 
+ {
+ try 
+ {
+ System.out.println("Lendo arquivo fonte...");
+ FileInputStream fis = new FileInputStream(new File("..//Work//src//fonte.txt")); 
+ Work parser = new Work(fis); 
+ parser.Start();
+ System.out.println("Arquivo fonte processado corretamente!");
+ }
+ catch (IOException e) 
+ {
+ System.out.println("Falha ao abrir arquivo fonte.");
+ System.exit(0);
+ }
+ }
+}
+PARSER_END(Work) 
+SKIP : { " "| "\t" | "\n" | "\r" }
+
+
+//1 a linguagem terá somente comentarios de uma linha
+TOKEN:
+{
+  //Tudo menos nova linha e enter
+  < SINGLE_LINE: "//" (~["\n" , "\r"])* ("\n" | "\r" | "\r\n" | "") > 
+}
+
+
+
+//3
+TOKEN :{ < EOL : ";" >}
+
+//4
+TOKEN: { < INCREMENTO  : (< MAIS >| < MENOS >) > | <  #MAIS:"++" > | < #MENOS:"--" > }
+
+//5
+TOKEN: { < #LETTER:["a"-"z","A"-"Z"] > | < #DIGIT: ["0"-"9"] >}
+
+//6
+TOKEN:
+{
+ 
+	< TIPO : (< INT > | < STRING > | <  BYTE > | <  FLOAT > | < DOUBLE >|< BOOLEAN >| < CHAR >) >|
+	< #INT:"int" > |
+	< #STRING : "String" > |
+	< #BYTE: "byte" > |
+	< #FLOAT :"float" > |
+	< #DOUBLE: "double" >|
+	< #BOOLEAN:"boolean" >|
+	< #CHAR : "char" >
+}
+
+//7
+TOKEN: { < LITERALS: < LETTER >(< LETTER >|< DIGIT >|"_")* > }
+
+//8
+TOKEN : { < OPERADORES_ARITIMETICOS : ( < ADICAO > | < SUBTRACAO > | < MULTIPLICACAO > | < DIVISAO > ) > |
+	< #ADICAO: "+" > | < #SUBTRACAO: "-" > | < #MULTIPLICACAO: "*" > | < #DIVISAO: "/" > 
+}
+
+//9
+TOKEN: { < FUNCTION: "function" > }
+
+//10
+TOKEN: {< BOOL:(< TRUE >|< FALSE >) > | < #TRUE:"true" > | < #FALSE:"false" >}
+
+//11
+TOKEN : { < ABRE_PARENTESES : "(" >  }
+TOKEN : { < FECHA_PARENTESES : ")" >  }
+
+//12
+TOKEN : { < ABRE_CHAVES : "{" >  }
+TOKEN : { < FECHA_CHAVES : "}" >  }
+
+
+//6 condições
+TOKEN : { < IF : "if" > }
+
+//7
+TOKEN : { < ELSE : "else" > }
+TOKEN : { < ELSEIF : "elseif" > }
+
+		//numericos								//String entre aspas
+TOKEN: { < VALUES: < DIGIT >(< DIGIT >)* | "\""< LETTER >(< LETTER >|< DIGIT >|"_")*"\"" > } 
+
+//8
+TOKEN : { < ATRIBUICAO : "=" > }
+
+//9
+TOKEN : { < VIRGULA : "," > }
+
+void Start() : {} { (INSTRUCOES()) < EOF > }
+
+void INSTRUCOES():
+{ }
+{
+  (IDENTIFICADOR() | < SINGLE_LINE >)*
+}
+
+
+void  DECLARAR_VARIAVEL(): { } { (< LITERALS > | < VIRGULA > DECLARAR_VARIAVEL())+ }
+
+void ATRIBUICAO_VARIAVEL(): { } { < VALUES >(< VIRGULA > < LITERALS > < ATRIBUICAO > < VALUES >)* }
+
+void IDENTIFICADOR(): { }
+{
+   < TIPO >< LITERALS >(< VIRGULA > DECLARAR_VARIAVEL() | < ATRIBUICAO > ATRIBUICAO_VARIAVEL() )*< EOL >
+}
+
+
+
+
+
+
+
+
+
+
