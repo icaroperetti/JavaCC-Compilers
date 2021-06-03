@@ -133,7 +133,8 @@ void COMANDO():
 void WHILE():
 {}
 {
-   < WHILE >EXP_BOOL() < FECHA_PARENTESES > < ABRE_CHAVES >(COMANDO())* < FECHA_CHAVES >		
+    < WHILE >EXP_BOOL() < FECHA_PARENTESES > < ABRE_CHAVES >(COMANDO())* < FECHA_CHAVES >		
+
 }
 
 void ATRIBUICAO():
@@ -171,12 +172,4 @@ void VARIAVEL():
 {
   < LITERALS >(VARIAVEL())*
 }
-
-
-
-  
-
-
-
-
 
