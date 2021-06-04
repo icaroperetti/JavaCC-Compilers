@@ -88,7 +88,6 @@ TOKEN : { < FECHA_CHAVES : "}" >  }
 
 TOKEN : { < IF : "if(" > }
 
-
 TOKEN : { < ELSE : "else" > }
 TOKEN : { < ELSEIF : "elseif" > }
 
@@ -111,10 +110,10 @@ void Start() : {} { (INSTRUCOES()) < EOF > }
 void INSTRUCOES():
 { }
 {
-  (IDENTIFICADOR() | < COMMENT > | COMANDO())*
+  (IDENTIFICADOR() | < COMMENT > | COMANDO()| IF())*
 }
 
-//---------------DECLARAR V�RIAVEIS ------------------------------------------------
+//---------------DECLARAR VARIAVEIS ------------------------------------------------
 void  DECLARAR_VARIAVEL(): { } { (< LITERALS > | < VIRGULA > DECLARAR_VARIAVEL())+ }
 
 void ATRIBUICAO_VARIAVEL(): { } { < VALUES >(< VIRGULA > < LITERALS > < ATRIBUICAO > < VALUES >)* }
@@ -155,6 +154,20 @@ void EXP_ARITMETICA():
 {
   ( ( < VALUES > | < NUMEROS > | < LITERALS >  ) < OPER_ARITMETICO > ( < VALUES > | < NUMEROS > | < LITERALS > ) )
 }
+
+void CONDICAO():
+{ }
+{
+  ( EXP_BOOL() < FECHA_PARENTESES ><ABRE_CHAVES >INSTRUCOES()< FECHA_CHAVES >)*
+}
+
+void IF():
+{ }
+{
+  (< IF > CONDICAO() (< ELSEIF > CONDICAO())* (< ELSE ><ABRE_CHAVES >INSTRUCOES()< FECHA_CHAVES >)*)
+}
+  
+  
 
 
 
