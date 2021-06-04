@@ -48,3 +48,5 @@ function () {
 function (int b, int b) {
 	a = 2;
 }
+
+a++;

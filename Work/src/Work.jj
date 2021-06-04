@@ -114,7 +114,7 @@ void INSTRUCOES():
 //---------------DECLARAR VARIAVEIS ------------------------------------------------
 void  DECLARAR_VARIAVEL(): { } { (< TIPO ><LITERALS >) }
 
-void ATRIBUICAO_VARIAVEL(): { } { < VALUES >|< NUMEROS >|< LITERALS > }
+void ATRIBUICAO_VARIAVEL(): { } { < VALUES >|< NUMEROS >|< LITERALS >| < INCREMENTO > }
 
 void IDENTIFICADOR(): { }
 {
@@ -125,7 +125,7 @@ void IDENTIFICADOR(): { }
 void COMANDO():
 {}
 {
-  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF() | FUNCAO())+
+  (WHILE() | EXP_ARITMETICA() | IDENTIFICADOR()| IF() | FUNCAO())+
 }
 
 
@@ -165,10 +165,16 @@ void EXP_BOOL():
  ( ( < VALUES > | < NUMEROS > | < LITERALS >  ) < OPER_RELACIONAL > ( < VALUES > | < NUMEROS > | < LITERALS > ) )
 }
 
+void EXP_INCREMENTO ():
+{ }
+{
+  (< LITERALS >< INCREMENTO >< EOL >)*
+}
+
 void EXP_ARITMETICA():
 {}
 {
-  ( < LITERALS >< ATRIBUICAO >( < VALUES > | < NUMEROS > | < LITERALS >  ) (< OPER_ARITMETICO > ( < VALUES > | < NUMEROS > | < LITERALS > ))* < EOL > )
+  ( < LITERALS >(< INCREMENTO > | < ATRIBUICAO >( < VALUES > | < NUMEROS > | < LITERALS >  )) (< OPER_ARITMETICO > ( < VALUES > | < NUMEROS > | < LITERALS > ))* < EOL > )
 }
 
 
