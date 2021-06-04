@@ -1,6 +1,6 @@
 # JavaCC-Compilers
 
-Repository dedicated to compiler classes
+Repository dedicated to compiler classes at Catarinense Federal Institute
 
 > ### Configurar JavaCC
 
