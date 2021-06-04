@@ -23,6 +23,7 @@ eclipse.preferences.version=1
  - [x] Comandos de repetição (WHILE feito)
  - [x] Comandos de decisão (IF,ELSEIF,ELSE feitos)
  - [ ] Saída de dados 
+ - [x] Declarar função com parâmetros e sem parâmetros
 
 > ### Extras
 
