@@ -24,6 +24,7 @@ eclipse.preferences.version=1
  - [x] Comandos de decisão (IF,ELSEIF,ELSE feitos)
  - [ ] Saída de dados 
  - [x] Declarar função com parâmetros e sem parâmetros
+ - [x] Realizar Incremento(++, --)
 
 > ### Extras
 
