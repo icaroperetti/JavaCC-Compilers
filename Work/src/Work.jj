@@ -27,11 +27,11 @@ PARSER_END(Work)
 SKIP : { " "| "\t" | "\n" | "\r" }
 
 
-//1 a linguagem ter· somente comentarios de uma linha
+//1 a linguagem ter√° somente comentarios de uma linha
 TOKEN:
 {
   //Tudo menos nova linha e enter
-  < SINGLE_LINE: "//" (~["\n" , "\r"])* ("\n" | "\r" | "\r\n" | "") > 
+  < COMMENT: "//" (~["\n" , "\r"])* ("\n" | "\r" | "\r\n" | "") > 
 }
 
 
@@ -106,10 +106,10 @@ void Start() : {} { (INSTRUCOES()) < EOF > }
 void INSTRUCOES():
 { }
 {
-  (IDENTIFICADOR() | < SINGLE_LINE > | COMANDO())*
+  (IDENTIFICADOR() | < COMMENT > | COMANDO())*
 }
 
-//---------------DECLARAR V¡RIAVEIS ------------------------------------------------
+//---------------DECLARAR V√ÅRIAVEIS ------------------------------------------------
 void  DECLARAR_VARIAVEL(): { } { (< LITERALS > | < VIRGULA > DECLARAR_VARIAVEL())+ }
 
 void ATRIBUICAO_VARIAVEL(): { } { < VALUES >(< VIRGULA > < LITERALS > < ATRIBUICAO > < VALUES >)* }
