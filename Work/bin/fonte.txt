@@ -8,10 +8,9 @@ double c,d,e;
 
 while(k < 10){
 	while(j<5){
-	 int a = 11;
-		k = j+5;
+	 int o = 11;
+		k = j+5.5;
 		j = j+1;
 	}
 }
-
 

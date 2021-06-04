@@ -31,25 +31,25 @@ PARSER_END(Work)
 SKIP : { " "| "\t" | "\n" | "\r" }
 
 
-//1 a linguagem terá somente comentarios de uma linha
+
+//a linguagem terï¿½ somente comentarios de uma linha
 TOKEN:
 {
   //Tudo menos nova linha e enter
-  < SINGLE_LINE: "//" (~["\n" , "\r"])* ("\n" | "\r" | "\r\n" | "") > 
+  < COMMENT: "//" (~["\n" , "\r"])* ("\n" | "\r" | "\r\n" | "") > 
 }
 
 
-
-//3
 TOKEN :{ < EOL : ";" >}
 
-//4
+
 TOKEN: { < INCREMENTO  : (< MAIS >| < MENOS >) > | <  #MAIS:"++" > | < #MENOS:"--" > }
 
-//5
-TOKEN: { < #LETTER:["a"-"z","A"-"Z"] > | < #DIGIT: ["0"-"9"] >}
+										
+TOKEN: { < #LETTER:["a"-"z","A"-"Z"] > | < #DIGIT: (["0"-"9"])+ | (["0"-"9"]) + "." (["0"-"9"])+ >}
 
-//6
+TOKEN : { < NUMEROS : (["0"-"9"])+","(["0"-"9"])+ > }
+
 TOKEN:
 {
  
@@ -71,6 +71,7 @@ TOKEN: { < OPER_ARITMETICO :("+" | "-" |"*"|"/" )>}
 
 TOKEN: { < OPER_RELACIONAL :(">" | "<" |"=="|"!=" )>}
 
+
 TOKEN: { < FUNCTION: "function" > }
 
 
@@ -85,7 +86,7 @@ TOKEN : { < ABRE_CHAVES : "{" >  }
 TOKEN : { < FECHA_CHAVES : "}" >  }
 
 
-TOKEN : { < IF : "if" > }
+TOKEN : { < IF : "if(" > }
 
 
 TOKEN : { < ELSE : "else" > }
@@ -110,10 +111,10 @@ void Start() : {} { (INSTRUCOES()) < EOF > }
 void INSTRUCOES():
 { }
 {
-  (IDENTIFICADOR() | < SINGLE_LINE > | COMANDO())*
+  (IDENTIFICADOR() | < COMMENT > | COMANDO())*
 }
 
-//---------------DECLARAR VÁRIAVEIS ------------------------------------------------
+//---------------DECLARAR Vï¿½RIAVEIS ------------------------------------------------
 void  DECLARAR_VARIAVEL(): { } { (< LITERALS > | < VIRGULA > DECLARAR_VARIAVEL())+ }
 
 void ATRIBUICAO_VARIAVEL(): { } { < VALUES >(< VIRGULA > < LITERALS > < ATRIBUICAO > < VALUES >)* }
@@ -124,20 +125,20 @@ void IDENTIFICADOR(): { }
 }
 
 
+//-------WHILE----------------------------------------------------------------------------
 void COMANDO():
 {}
 {
-  (WHILE() | ATRIBUICAO() | IDENTIFICADOR())+
+  (WHILE() | ATRIBUIR() | IDENTIFICADOR())+
 }
 
 void WHILE():
 {}
 {
     < WHILE >EXP_BOOL() < FECHA_PARENTESES > < ABRE_CHAVES >(COMANDO())* < FECHA_CHAVES >		
-
 }
 
-void ATRIBUICAO():
+void ATRIBUIR():
 { }
 {
   (< LITERALS > < ATRIBUICAO >EXP_ARITMETICA()< EOL >)+
@@ -146,20 +147,16 @@ void ATRIBUICAO():
 void EXP_BOOL():
 { }
 {
-  EXP_ARITMETICA()< OPER_RELACIONAL >EXP_ARITMETICA()
+ ( ( < VALUES > | < NUMEROS > | < LITERALS >  ) < OPER_RELACIONAL > ( < VALUES > | < NUMEROS > | < LITERALS > ) )
 }
 
 void EXP_ARITMETICA():
 {}
 {
-  (TERMO()(< OPER_ARITMETICO >TERMO())*)+
+  ( ( < VALUES > | < NUMEROS > | < LITERALS >  ) < OPER_ARITMETICO > ( < VALUES > | < NUMEROS > | < LITERALS > ) )
 }
 
-void TERMO():
-{ }
-{
-  ( < VALUES > | < LITERALS > )
-}
+
 
 /*
 void NUMERO():

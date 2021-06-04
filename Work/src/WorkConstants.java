@@ -9,7 +9,7 @@ public interface WorkConstants {
   /** End of File. */
   int EOF = 0;
   /** RegularExpression Id. */
-  int SINGLE_LINE = 5;
+  int COMMENT = 5;
   /** RegularExpression Id. */
   int EOL = 6;
   /** RegularExpression Id. */
@@ -23,57 +23,59 @@ public interface WorkConstants {
   /** RegularExpression Id. */
   int DIGIT = 11;
   /** RegularExpression Id. */
-  int TIPO = 12;
+  int NUMEROS = 12;
   /** RegularExpression Id. */
-  int INT = 13;
+  int TIPO = 13;
   /** RegularExpression Id. */
-  int STRING = 14;
+  int INT = 14;
   /** RegularExpression Id. */
-  int BYTE = 15;
+  int STRING = 15;
   /** RegularExpression Id. */
-  int FLOAT = 16;
+  int BYTE = 16;
   /** RegularExpression Id. */
-  int DOUBLE = 17;
+  int FLOAT = 17;
   /** RegularExpression Id. */
-  int BOOLEAN = 18;
+  int DOUBLE = 18;
   /** RegularExpression Id. */
-  int CHAR = 19;
+  int BOOLEAN = 19;
   /** RegularExpression Id. */
-  int LITERALS = 20;
+  int CHAR = 20;
   /** RegularExpression Id. */
-  int OPER_ARITMETICO = 21;
+  int LITERALS = 21;
   /** RegularExpression Id. */
-  int OPER_RELACIONAL = 22;
+  int OPER_ARITMETICO = 22;
   /** RegularExpression Id. */
-  int FUNCTION = 23;
+  int OPER_RELACIONAL = 23;
   /** RegularExpression Id. */
-  int BOOL = 24;
+  int FUNCTION = 24;
   /** RegularExpression Id. */
-  int TRUE = 25;
+  int BOOL = 25;
   /** RegularExpression Id. */
-  int FALSE = 26;
+  int TRUE = 26;
   /** RegularExpression Id. */
-  int ABRE_PARENTESES = 27;
+  int FALSE = 27;
   /** RegularExpression Id. */
-  int FECHA_PARENTESES = 28;
+  int ABRE_PARENTESES = 28;
   /** RegularExpression Id. */
-  int ABRE_CHAVES = 29;
+  int FECHA_PARENTESES = 29;
   /** RegularExpression Id. */
-  int FECHA_CHAVES = 30;
+  int ABRE_CHAVES = 30;
   /** RegularExpression Id. */
-  int IF = 31;
+  int FECHA_CHAVES = 31;
   /** RegularExpression Id. */
-  int ELSE = 32;
+  int IF = 32;
   /** RegularExpression Id. */
-  int ELSEIF = 33;
+  int ELSE = 33;
   /** RegularExpression Id. */
-  int VALUES = 34;
+  int ELSEIF = 34;
   /** RegularExpression Id. */
-  int ATRIBUICAO = 35;
+  int VALUES = 35;
   /** RegularExpression Id. */
-  int VIRGULA = 36;
+  int ATRIBUICAO = 36;
   /** RegularExpression Id. */
-  int WHILE = 37;
+  int VIRGULA = 37;
+  /** RegularExpression Id. */
+  int WHILE = 38;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -85,13 +87,14 @@ public interface WorkConstants {
     "\"\\t\"",
     "\"\\n\"",
     "\"\\r\"",
-    "<SINGLE_LINE>",
+    "<COMMENT>",
     "\";\"",
     "<INCREMENTO>",
     "\"++\"",
     "\"--\"",
     "<LETTER>",
     "<DIGIT>",
+    "<NUMEROS>",
     "<TIPO>",
     "\"int\"",
     "\"String\"",
@@ -111,7 +114,7 @@ public interface WorkConstants {
     "\")\"",
     "\"{\"",
     "\"}\"",
-    "\"if\"",
+    "\"if(\"",
     "\"else\"",
     "\"elseif\"",
     "<VALUES>",
