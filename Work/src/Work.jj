@@ -136,13 +136,6 @@ void WHILE():
     < WHILE >EXP_BOOL() < FECHA_PARENTESES > < ABRE_CHAVES >(COMANDO())* < FECHA_CHAVES >		
 }
 
-/*
-void ATRIBUIR():
-{ }
-{
-  (< LITERALS > < ATRIBUICAO >EXP_ARITMETICA()< EOL >)+
-}
-*/
 
 void EXP_BOOL():
 { }
@@ -168,13 +161,3 @@ void IF():
   (< IF >CONDICAO() (< ELSEIF > CONDICAO())* (< ELSE ><ABRE_CHAVES >INSTRUCOES()< FECHA_CHAVES >)*)
 }
   
-  
-
-
-/*
-void VARIAVEL():
-{ }
-{
-  < LITERALS >(VARIAVEL())*
-}
-*/

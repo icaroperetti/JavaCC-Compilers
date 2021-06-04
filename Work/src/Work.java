@@ -230,13 +230,6 @@ public class Work implements WorkConstants {
     }
   }
 
-/*
-void ATRIBUIR():
-{ }
-{
-  (< LITERALS > < ATRIBUICAO >EXP_ARITMETICA()< EOL >)+
-}
-*/
   final public void EXP_BOOL() throws ParseException {
     trace_call("EXP_BOOL");
     try {
