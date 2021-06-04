@@ -119,7 +119,7 @@ public interface WorkConstants {
     "<VALUES>",
     "\"=\"",
     "\",\"",
-    "\"while(\"",
+    "\"while\"",
     "<LITERALS>",
   };
 

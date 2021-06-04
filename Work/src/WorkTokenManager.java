@@ -67,7 +67,9 @@ private final int jjStopStringLiteralDfa_0(int pos, long active0)
             return 84;
          return -1;
       case 4:
-         if ((active0 & 0x2200800000L) != 0L)
+         if ((active0 & 0x2000000000L) != 0L)
+            return 84;
+         if ((active0 & 0x200800000L) != 0L)
          {
             jjmatchedKind = 38;
             jjmatchedPos = 4;
@@ -259,7 +261,9 @@ private int jjMoveStringLiteralDfa4_0(long old0, long active0)
    switch(curChar)
    {
       case 101:
-         return jjMoveStringLiteralDfa5_0(active0, 0x2000000000L);
+         if ((active0 & 0x2000000000L) != 0L)
+            return jjStartNfaWithStates_0(4, 37, 84);
+         break;
       case 105:
          return jjMoveStringLiteralDfa5_0(active0, 0x200000000L);
       case 116:
@@ -289,10 +293,6 @@ private int jjMoveStringLiteralDfa5_0(long old0, long active0)
    debugStream.println("Current character : " + TokenMgrError.addEscapes(String.valueOf(curChar)) + " (" + (int)curChar + ") at line " + input_stream.getEndLine() + " column " + input_stream.getEndColumn());
    switch(curChar)
    {
-      case 40:
-         if ((active0 & 0x2000000000L) != 0L)
-            return jjStopAtPos(5, 37);
-         break;
       case 102:
          if ((active0 & 0x200000000L) != 0L)
             return jjStartNfaWithStates_0(5, 33, 84);
@@ -922,8 +922,7 @@ public static final String[] jjstrLiteralImages = {
 "", null, null, null, null, null, "\73", null, null, null, null, null, null, 
 null, null, null, null, null, null, null, null, null, null, 
 "\146\165\156\143\164\151\157\156", null, null, null, "\50", "\51", "\173", "\175", "\151\146", 
-"\145\154\163\145", "\145\154\163\145\151\146", null, "\75", "\54", "\167\150\151\154\145\50", 
-null, };
+"\145\154\163\145", "\145\154\163\145\151\146", null, "\75", "\54", "\167\150\151\154\145", null, };
 
 /** Lexer state names. */
 public static final String[] lexStateNames = {

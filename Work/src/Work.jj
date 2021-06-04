@@ -99,8 +99,7 @@ TOKEN : { < ATRIBUICAO : "=" > }
 TOKEN : { < VIRGULA : "," > }
 
 
-
-TOKEN: { < WHILE: "while(" > }
+TOKEN: { < WHILE: "while" > }
 
 TOKEN: { < LITERALS: < LETTER >(< LETTER >|< DIGIT >|"_")* > }
 
@@ -109,7 +108,7 @@ void Start() : {} { (INSTRUCOES()) < EOF > }
 void INSTRUCOES():
 { }
 {
-  (IDENTIFICADOR() | < COMMENT > | COMANDO()| IF())*
+  (IDENTIFICADOR() | < COMMENT > | COMANDO())*
 }
 
 //---------------DECLARAR VARIAVEIS ------------------------------------------------
@@ -127,13 +126,26 @@ void IDENTIFICADOR(): { }
 void COMANDO():
 {}
 {
-  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR())+
+  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF())+
+}
+
+
+void CONDICAO():
+{ }
+{
+  ( <ABRE_PARENTESES >EXP_BOOL() < FECHA_PARENTESES ><ABRE_CHAVES >INSTRUCOES()< FECHA_CHAVES >)*
+}
+
+void IF():
+{ }
+{
+  < IF >CONDICAO() (< ELSEIF > CONDICAO())* (< ELSE ><ABRE_CHAVES >INSTRUCOES()< FECHA_CHAVES >)*
 }
 
 void WHILE():
 {}
 {
-    < WHILE >EXP_BOOL() < FECHA_PARENTESES > < ABRE_CHAVES >(COMANDO())* < FECHA_CHAVES >		
+    < WHILE ><ABRE_PARENTESES >EXP_BOOL() < FECHA_PARENTESES > < ABRE_CHAVES >(COMANDO())* < FECHA_CHAVES >		
 }
 
 
@@ -149,15 +161,5 @@ void EXP_ARITMETICA():
   ( < LITERALS >< ATRIBUICAO >( < VALUES > | < NUMEROS > | < LITERALS >  ) (< OPER_ARITMETICO > ( < VALUES > | < NUMEROS > | < LITERALS > ))* < EOL > )
 }
 
-void CONDICAO():
-{ }
-{
-  ( <ABRE_PARENTESES >EXP_BOOL() < FECHA_PARENTESES ><ABRE_CHAVES >INSTRUCOES()< FECHA_CHAVES >)*
-}
 
-void IF():
-{ }
-{
-  (< IF >CONDICAO() (< ELSEIF > CONDICAO())* (< ELSE ><ABRE_CHAVES >INSTRUCOES()< FECHA_CHAVES >)*)
-}
   
