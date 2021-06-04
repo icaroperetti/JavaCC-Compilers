@@ -1,6 +1,7 @@
 options 
 {
  DEBUG_PARSER=true;
+ DEBUG_TOKEN_MANAGER=true;
  static = false; 
 } 
 PARSER_BEGIN(Work) 
@@ -32,7 +33,7 @@ SKIP : { " "| "\t" | "\n" | "\r" }
 
 
 
-//a linguagem ter� somente comentarios de uma linha
+//a linguagem tera somente comentarios de uma linha
 TOKEN:
 {
   //Tudo menos nova linha e enter
@@ -64,9 +65,6 @@ TOKEN:
 }
 
 
-TOKEN: { < LITERALS: < LETTER >(< LETTER >|< DIGIT >|"_")* > }
-
-
 TOKEN: { < OPER_ARITMETICO :("+" | "-" |"*"|"/" )>}
 
 TOKEN: { < OPER_RELACIONAL :(">" | "<" |"=="|"!=" )>}
@@ -86,7 +84,7 @@ TOKEN : { < ABRE_CHAVES : "{" >  }
 TOKEN : { < FECHA_CHAVES : "}" >  }
 
 
-TOKEN : { < IF : "if(" > }
+TOKEN : { < IF : "if" > }
 
 TOKEN : { < ELSE : "else" > }
 TOKEN : { < ELSEIF : "elseif" > }
@@ -104,6 +102,7 @@ TOKEN : { < VIRGULA : "," > }
 
 TOKEN: { < WHILE: "while(" > }
 
+TOKEN: { < LITERALS: < LETTER >(< LETTER >|< DIGIT >|"_")* > }
 
 void Start() : {} { (INSTRUCOES()) < EOF > }
 
@@ -114,13 +113,13 @@ void INSTRUCOES():
 }
 
 //---------------DECLARAR VARIAVEIS ------------------------------------------------
-void  DECLARAR_VARIAVEL(): { } { (< LITERALS > | < VIRGULA > DECLARAR_VARIAVEL())+ }
+void  DECLARAR_VARIAVEL(): { } { (< TIPO ><LITERALS >) }
 
-void ATRIBUICAO_VARIAVEL(): { } { < VALUES >(< VIRGULA > < LITERALS > < ATRIBUICAO > < VALUES >)* }
+void ATRIBUICAO_VARIAVEL(): { } { < VALUES >|< NUMEROS >|< LITERALS > }
 
 void IDENTIFICADOR(): { }
 {
-   < TIPO >< LITERALS >(< VIRGULA > DECLARAR_VARIAVEL() | < ATRIBUICAO > ATRIBUICAO_VARIAVEL() )*< EOL >
+    ( DECLARAR_VARIAVEL() ( < VIRGULA > ( < LITERALS > | < VIRGULA > < LITERALS > )+ | < ATRIBUICAO >ATRIBUICAO_VARIAVEL() ) * < EOL > )
 }
 
 
@@ -128,7 +127,7 @@ void IDENTIFICADOR(): { }
 void COMANDO():
 {}
 {
-  (WHILE() | ATRIBUIR() | IDENTIFICADOR())+
+  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR())+
 }
 
 void WHILE():
@@ -137,11 +136,13 @@ void WHILE():
     < WHILE >EXP_BOOL() < FECHA_PARENTESES > < ABRE_CHAVES >(COMANDO())* < FECHA_CHAVES >		
 }
 
+/*
 void ATRIBUIR():
 { }
 {
   (< LITERALS > < ATRIBUICAO >EXP_ARITMETICA()< EOL >)+
 }
+*/
 
 void EXP_BOOL():
 { }
@@ -152,32 +153,23 @@ void EXP_BOOL():
 void EXP_ARITMETICA():
 {}
 {
-  ( ( < VALUES > | < NUMEROS > | < LITERALS >  ) < OPER_ARITMETICO > ( < VALUES > | < NUMEROS > | < LITERALS > ) )
+  ( < LITERALS >< ATRIBUICAO >( < VALUES > | < NUMEROS > | < LITERALS >  ) (< OPER_ARITMETICO > ( < VALUES > | < NUMEROS > | < LITERALS > ))* < EOL > )
 }
 
 void CONDICAO():
 { }
 {
-  ( EXP_BOOL() < FECHA_PARENTESES ><ABRE_CHAVES >INSTRUCOES()< FECHA_CHAVES >)*
+  ( <ABRE_PARENTESES >EXP_BOOL() < FECHA_PARENTESES ><ABRE_CHAVES >INSTRUCOES()< FECHA_CHAVES >)*
 }
 
 void IF():
 { }
 {
-  (< IF > CONDICAO() (< ELSEIF > CONDICAO())* (< ELSE ><ABRE_CHAVES >INSTRUCOES()< FECHA_CHAVES >)*)
+  (< IF >CONDICAO() (< ELSEIF > CONDICAO())* (< ELSE ><ABRE_CHAVES >INSTRUCOES()< FECHA_CHAVES >)*)
 }
   
   
 
-
-
-/*
-void NUMERO():
-{}
-{
-  < VALUES >(NUMERO())*
-}
-*/
 
 /*
 void VARIAVEL():
