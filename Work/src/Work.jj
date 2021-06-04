@@ -114,7 +114,7 @@ void INSTRUCOES():
 //---------------DECLARAR VARIAVEIS ------------------------------------------------
 void  DECLARAR_VARIAVEL(): { } { (< TIPO ><LITERALS >) }
 
-void ATRIBUICAO_VARIAVEL(): { } { < VALUES >|< NUMEROS >|< LITERALS > }
+void ATRIBUICAO_VARIAVEL(): { } { < VALUES >|< NUMEROS >|< LITERALS > | < BOOL > }
 
 void IDENTIFICADOR(): { }
 {
