@@ -103,13 +103,8 @@ TOKEN: { < WHILE: "while" > }
 
 TOKEN: { < LITERALS: < LETTER >(< LETTER >|< DIGIT >|"_")* > }
 
-void Start() : {} { (INSTRUCOES()) < EOF > }
+void Start() : {} { (COMANDOS()) < EOF > }
 
-void INSTRUCOES():
-{ }
-{
-  (IDENTIFICADOR() | < COMMENT > | COMANDO())*
-}
 
 //---------------DECLARAR VARIAVEIS ------------------------------------------------
 void  DECLARAR_VARIAVEL(): { } { (< TIPO ><LITERALS >) }
@@ -123,29 +118,29 @@ void IDENTIFICADOR(): { }
 
 
 //-------WHILE----------------------------------------------------------------------------
-void COMANDO():
+void COMANDOS():
 {}
 {
-  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF())+
+  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF() | < COMMENT >)+
 }
 
 
 void CONDICAO():
 { }
 {
-  ( <ABRE_PARENTESES >EXP_BOOL() < FECHA_PARENTESES ><ABRE_CHAVES >INSTRUCOES()< FECHA_CHAVES >)*
+  ( <ABRE_PARENTESES >EXP_BOOL() < FECHA_PARENTESES ><ABRE_CHAVES >COMANDOS()< FECHA_CHAVES >)*
 }
 
 void IF():
 { }
 {
-  < IF >CONDICAO() (< ELSEIF > CONDICAO())* (< ELSE ><ABRE_CHAVES >INSTRUCOES()< FECHA_CHAVES >)*
+  < IF >CONDICAO() (< ELSEIF > CONDICAO())* (< ELSE ><ABRE_CHAVES >COMANDOS()< FECHA_CHAVES >)*
 }
 
 void WHILE():
 {}
 {
-    < WHILE ><ABRE_PARENTESES >EXP_BOOL() < FECHA_PARENTESES > < ABRE_CHAVES >(COMANDO())* < FECHA_CHAVES >		
+    < WHILE ><ABRE_PARENTESES >EXP_BOOL() < FECHA_PARENTESES > < ABRE_CHAVES >(COMANDOS())* < FECHA_CHAVES >		
 }
 
 
