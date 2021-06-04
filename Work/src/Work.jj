@@ -121,12 +121,11 @@ void IDENTIFICADOR(): { }
     ( DECLARAR_VARIAVEL() ( < VIRGULA > ( < LITERALS > | < VIRGULA > < LITERALS > )+ | < ATRIBUICAO >ATRIBUICAO_VARIAVEL() ) * < EOL > )
 }
 
-
 //-------WHILE----------------------------------------------------------------------------
 void COMANDO():
 {}
 {
-  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF())+
+  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF() | FUNCAO())+
 }
 
 
@@ -145,9 +144,20 @@ void IF():
 void WHILE():
 {}
 {
-    < WHILE ><ABRE_PARENTESES >EXP_BOOL() < FECHA_PARENTESES > < ABRE_CHAVES >(COMANDO())* < FECHA_CHAVES >		
+    < WHILE >CONDICAO()
 }
 
+void FUNCAO ():
+{ }
+{
+  < FUNCTION ><ABRE_PARENTESES >PARAMETROS()< FECHA_PARENTESES > <ABRE_CHAVES >INSTRUCOES()< FECHA_CHAVES >
+}
+
+void PARAMETROS ():
+{ }
+{
+  ( DECLARAR_VARIAVEL() (< VIRGULA > DECLARAR_VARIAVEL())*)*
+}
 
 void EXP_BOOL():
 { }

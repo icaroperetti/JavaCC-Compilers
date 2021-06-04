@@ -40,3 +40,11 @@ if(a != 1){
 }else{
 	a = 2;
 }
+
+function () {
+	a = 2;
+}
+
+function (int b, int b) {
+	a = 2;
+}
