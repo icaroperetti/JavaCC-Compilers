@@ -1,4 +1,3 @@
-# JavaCC-Compilers
 
 # JavaCC-Compilers
 
