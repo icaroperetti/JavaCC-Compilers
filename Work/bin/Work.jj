@@ -1,6 +1,7 @@
 options 
 {
  DEBUG_PARSER=true;
+ DEBUG_TOKEN_MANAGER=true;
  static = false; 
 } 
 PARSER_BEGIN(Work) 
@@ -27,25 +28,25 @@ PARSER_END(Work)
 SKIP : { " "| "\t" | "\n" | "\r" }
 
 
-//1 a linguagem terá somente comentarios de uma linha
+
+//a linguagem tera somente comentarios de uma linha
 TOKEN:
 {
   //Tudo menos nova linha e enter
-  < SINGLE_LINE: "//" (~["\n" , "\r"])* ("\n" | "\r" | "\r\n" | "") > 
+  < COMMENT: "//" (~["\n" , "\r"])* ("\n" | "\r" | "\r\n" | "") > 
 }
 
 
-
-//3
 TOKEN :{ < EOL : ";" >}
 
-//4
+
 TOKEN: { < INCREMENTO  : (< MAIS >| < MENOS >) > | <  #MAIS:"++" > | < #MENOS:"--" > }
 
-//5
-TOKEN: { < #LETTER:["a"-"z","A"-"Z"] > | < #DIGIT: ["0"-"9"] >}
+									
+TOKEN: { < #LETTER:["a"-"z","A"-"Z"] > | < #DIGIT: (["0"-"9"])+ | (["0"-"9"]) + "." (["0"-"9"])+ >}
 
-//6
+TOKEN : { < NUMEROS : (["0"-"9"])+","(["0"-"9"])+ > }
+
 TOKEN:
 {
  
@@ -60,12 +61,10 @@ TOKEN:
 }
 
 
-TOKEN: { < LITERALS: < LETTER >(< LETTER >|< DIGIT >|"_")* > }
-
-
 TOKEN: { < OPER_ARITMETICO :("+" | "-" |"*"|"/" )>}
 
 TOKEN: { < OPER_RELACIONAL :(">" | "<" |"=="|"!=" )>}
+
 
 TOKEN: { < FUNCTION: "function" > }
 
@@ -83,7 +82,6 @@ TOKEN : { < FECHA_CHAVES : "}" >  }
 
 TOKEN : { < IF : "if" > }
 
-
 TOKEN : { < ELSE : "else" > }
 TOKEN : { < ELSEIF : "elseif" > }
 
@@ -97,78 +95,62 @@ TOKEN : { < ATRIBUICAO : "=" > }
 TOKEN : { < VIRGULA : "," > }
 
 
+TOKEN: { < WHILE: "while" > }
 
-TOKEN: { < WHILE: "while(" > }
+TOKEN: { < LITERALS: < LETTER >(< LETTER >|< DIGIT >|"_")* > }
+
+void Start() : {} { (COMANDOS()) < EOF > }
 
 
-void Start() : {} { (INSTRUCOES()) < EOF > }
+//---------------DECLARAR VARIAVEIS ------------------------------------------------
+void  DECLARAR_VARIAVEL(): { } { (< TIPO ><LITERALS >) }
 
-void INSTRUCOES():
-{ }
-{
-  (IDENTIFICADOR() | < SINGLE_LINE > | COMANDO())*
-}
-
-//---------------DECLARAR VÁRIAVEIS ------------------------------------------------
-void  DECLARAR_VARIAVEL(): { } { (< LITERALS > | < VIRGULA > DECLARAR_VARIAVEL())+ }
-
-void ATRIBUICAO_VARIAVEL(): { } { < VALUES >(< VIRGULA > < LITERALS > < ATRIBUICAO > < VALUES >)* }
+void ATRIBUICAO_VARIAVEL(): { } { < VALUES >|< NUMEROS >|< LITERALS > | < BOOL > }
 
 void IDENTIFICADOR(): { }
 {
-   < TIPO >< LITERALS >(< VIRGULA > DECLARAR_VARIAVEL() | < ATRIBUICAO > ATRIBUICAO_VARIAVEL() )*< EOL >
+    ( DECLARAR_VARIAVEL() ( < VIRGULA > ( < LITERALS > | < VIRGULA > < LITERALS > )+ | < ATRIBUICAO >ATRIBUICAO_VARIAVEL() ) * < EOL > )
 }
 
 
-void COMANDO():
+//-------WHILE----------------------------------------------------------------------------
+void COMANDOS():
 {}
 {
-  (WHILE() | ATRIBUICAO() | IDENTIFICADOR())+
+  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF() | < COMMENT >)+
+}
+
+
+void CONDICAO():
+{ }
+{
+  ( <ABRE_PARENTESES >EXP_BOOL() < FECHA_PARENTESES ><ABRE_CHAVES >COMANDOS()< FECHA_CHAVES >)*
+}
+
+void IF():
+{ }
+{
+  < IF >CONDICAO() (< ELSEIF > CONDICAO())* (< ELSE ><ABRE_CHAVES >COMANDOS()< FECHA_CHAVES >)*
 }
 
 void WHILE():
 {}
 {
-    < WHILE >EXP_BOOL() < FECHA_PARENTESES > < ABRE_CHAVES >(COMANDO())* < FECHA_CHAVES >		
-
+    < WHILE ><ABRE_PARENTESES >EXP_BOOL() < FECHA_PARENTESES > < ABRE_CHAVES >(COMANDOS())* < FECHA_CHAVES >		
 }
 
-void ATRIBUICAO():
-{ }
-{
-  (< LITERALS > < ATRIBUICAO >EXP_ARITMETICA()< EOL >)+
-}
 
 void EXP_BOOL():
 { }
 {
-  EXP_ARITMETICA()< OPER_RELACIONAL >EXP_ARITMETICA()
+ ( ( < VALUES > | < NUMEROS > | < LITERALS >  ) < OPER_RELACIONAL > ( < VALUES > | < NUMEROS > | < LITERALS > ) )
 }
 
 void EXP_ARITMETICA():
 {}
 {
-  (TERMO()(< OPER_ARITMETICO >TERMO())*)+
+  ( < LITERALS >(< INCREMENTO >|< ATRIBUICAO >( < VALUES > | < NUMEROS > | < LITERALS >  )) (< OPER_ARITMETICO > ( < VALUES > | < NUMEROS > | < LITERALS > ))* < EOL > )
 }
 
-void TERMO():
-{ }
-{
-  ( < VALUES > | < LITERALS > )
-}
 
-/*
-void NUMERO():
-{}
-{
-  < VALUES >(NUMERO())*
-}
-*/
 
-/*
-void VARIAVEL():
-{ }
-{
-  < LITERALS >(VARIAVEL())*
-}
-*/

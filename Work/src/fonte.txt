@@ -1,4 +1,4 @@
-int a = 1;
+int a = true;
 double b = 2, c=0;
 //teste
 
@@ -8,10 +8,37 @@ double c,d,e;
 
 while(k < 10){
 	while(j<5){
-	 int a = 11;
-		k = j+5;
+	j++;
+	if(j==4){
+	   j = j+28;
+	}
+	 int o = 11;
+		k = j+5.5;
 		j = j+1;
+		k++;
 	}
 }
 
+if(a == 1){
+	a = 2;
+}
 
+if(a != 1){
+	a = 2;
+}else{
+	a = 3;
+}
+
+if(a > 1){
+	b = 3;
+}elseif(b < 2){
+	b = 2;
+}
+
+if(a != 1){
+	c = 4;
+}elseif(b == 3){
+	b = 5;
+}else{
+	a = 2;
+}

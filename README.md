@@ -19,8 +19,8 @@ eclipse.preferences.version=1
 
  - [x] Comentário (//)
  - [x] Declaração de variável
- - [ ] Comandos de repetição
- - [ ] Comandos de decisão
+ - [ ] Comandos de repetição (WHILE feito)
+ - [ ] Comandos de decisão (IF,ELSEIF,ELSE feitos)
  - [ ] Saída de dados 
 
 > ### Extras
