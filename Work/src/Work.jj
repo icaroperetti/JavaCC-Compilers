@@ -46,7 +46,7 @@ TOKEN :{ < EOL : ";" >}
 
 TOKEN: { < INCREMENTO  : (< MAIS >| < MENOS >) > | <  #MAIS:"++" > | < #MENOS:"--" > }
 
-										
+									
 TOKEN: { < #LETTER:["a"-"z","A"-"Z"] > | < #DIGIT: (["0"-"9"])+ | (["0"-"9"]) + "." (["0"-"9"])+ >}
 
 TOKEN : { < NUMEROS : (["0"-"9"])+","(["0"-"9"])+ > }
@@ -153,8 +153,8 @@ void EXP_BOOL():
 void EXP_ARITMETICA():
 {}
 {
-  ( < LITERALS >< ATRIBUICAO >( < VALUES > | < NUMEROS > | < LITERALS >  ) (< OPER_ARITMETICO > ( < VALUES > | < NUMEROS > | < LITERALS > ))* < EOL > )
+  ( < LITERALS >(< INCREMENTO >|< ATRIBUICAO >( < VALUES > | < NUMEROS > | < LITERALS >  )) (< OPER_ARITMETICO > ( < VALUES > | < NUMEROS > | < LITERALS > ))* < EOL > )
 }
 
 
-  
+
