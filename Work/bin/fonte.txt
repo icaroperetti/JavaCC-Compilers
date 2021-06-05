@@ -42,3 +42,15 @@ if(a != 1){
 }else{
 	a = 2;
 }
+
+function () {
+ a = x + 1;
+}
+
+function (int a, int b) {
+ a = x + 1;
+}
+
+function (int a) {
+ a = x + 1;
+}
