@@ -75,7 +75,9 @@ public interface WorkConstants {
   /** RegularExpression Id. */
   int WHILE = 37;
   /** RegularExpression Id. */
-  int LITERALS = 38;
+  int DO = 38;
+  /** RegularExpression Id. */
+  int LITERALS = 39;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -120,6 +122,7 @@ public interface WorkConstants {
     "\"=\"",
     "\",\"",
     "\"while\"",
+    "\"do\"",
     "<LITERALS>",
   };
 

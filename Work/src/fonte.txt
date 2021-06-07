@@ -42,3 +42,18 @@ if(a != 1){
 }else{
 	a = 2;
 }
+do{
+ a=1+1;
+}while(a<10)
+
+function () {
+ a = x + 1;
+}
+
+function (int a, int b) {
+ a = x + 1;
+}
+
+function (int a) {
+ a = x + 1;
+}

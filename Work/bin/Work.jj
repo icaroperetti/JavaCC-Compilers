@@ -28,8 +28,6 @@ PARSER_END(Work)
 SKIP : { " "| "\t" | "\n" | "\r" }
 
 
-
-//a linguagem tera somente comentarios de uma linha
 TOKEN:
 {
   //Tudo menos nova linha e enter
@@ -96,6 +94,7 @@ TOKEN : { < VIRGULA : "," > }
 
 
 TOKEN: { < WHILE: "while" > }
+TOKEN: { < DO:"do" >}
 
 TOKEN: { < LITERALS: < LETTER >(< LETTER >|< DIGIT >|"_")* > }
 
@@ -117,7 +116,7 @@ void IDENTIFICADOR(): { }
 void COMANDOS():
 {}
 {
-  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF() | < COMMENT >)+
+  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF() | < COMMENT > | FUNCAO ()| DO_WHILE())+
 }
 
 
@@ -139,6 +138,18 @@ void WHILE():
     < WHILE ><ABRE_PARENTESES >EXP_BOOL() < FECHA_PARENTESES > < ABRE_CHAVES >(COMANDOS())* < FECHA_CHAVES >		
 }
 
+void FUNCAO ():
+{ }
+{
+  < FUNCTION ><ABRE_PARENTESES >(PARAMETROS())*< FECHA_PARENTESES > <ABRE_CHAVES >(COMANDOS())*< FECHA_CHAVES >
+}
+
+void PARAMETROS ():
+{ }
+{
+  DECLARAR_VARIAVEL() (< VIRGULA > DECLARAR_VARIAVEL())*
+}
+
 
 void EXP_BOOL():
 { }
@@ -152,5 +163,16 @@ void EXP_ARITMETICA():
   ( < LITERALS >(< INCREMENTO >|< ATRIBUICAO >( < VALUES > | < NUMEROS > | < LITERALS >  )) (< OPER_ARITMETICO > ( < VALUES > | < NUMEROS > | < LITERALS > ))* < EOL > )
 }
 
+void ABRE_ESCOPO():
+{ }
+{
+  < ABRE_CHAVES >(COMANDOS())< FECHA_CHAVES >
+}
 
+void DO_WHILE():
+{ }
+{
+  < DO >ABRE_ESCOPO()< WHILE ><ABRE_PARENTESES >EXP_BOOL()< FECHA_PARENTESES >
+}
+   
 
