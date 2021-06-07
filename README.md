@@ -26,6 +26,6 @@ eclipse.preferences.version=1
 > ### Extras
 
  - [ ] Switch
- - [ ] Do While
+ - [x] Do While
  - [ ] If inline /decisão ternária
  - [ ] Comando inovador complexo
