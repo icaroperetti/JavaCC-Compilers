@@ -148,9 +148,12 @@ public class Work implements WorkConstants {
         case FUNCTION:
           FUNCAO();
           break;
+<<<<<<< HEAD
         case DO:
           DO_WHILE();
           break;
+=======
+>>>>>>> 378abca90e90a7f7adbb9313653df53a540f9c97
         default:
           jj_la1[5] = jj_gen;
           jj_consume_token(-1);
@@ -298,7 +301,10 @@ public class Work implements WorkConstants {
         case FUNCTION:
         case IF:
         case WHILE:
+<<<<<<< HEAD
         case DO:
+=======
+>>>>>>> 378abca90e90a7f7adbb9313653df53a540f9c97
         case LITERALS:
           ;
           break;
@@ -484,7 +490,11 @@ public class Work implements WorkConstants {
       jj_la1_0 = new int[] {0x1001000,0x0,0x0,0x0,0x0,0x80802020,0x80802020,0x8000000,0x0,0x0,0x80802020,0x2000,0x80802020,0x0,0x1000,0x1000,0x1000,0x80,0x200000,0x1000,};
    }
    private static void jj_la1_init_1() {
+<<<<<<< HEAD
       jj_la1_1 = new int[] {0x84,0x18,0x90,0x90,0x18,0xe0,0xe0,0x0,0x2,0x1,0xe0,0x0,0xe0,0x10,0x84,0x84,0x84,0x8,0x0,0x84,};
+=======
+      jj_la1_1 = new int[] {0x44,0x18,0x50,0x50,0x18,0x60,0x60,0x0,0x2,0x1,0x60,0x0,0x60,0x10,0x44,0x44,0x44,0x8,0x0,0x44,};
+>>>>>>> 378abca90e90a7f7adbb9313653df53a540f9c97
    }
 
   /** Constructor with InputStream. */

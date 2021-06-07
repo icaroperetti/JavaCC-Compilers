@@ -116,7 +116,11 @@ void IDENTIFICADOR(): { }
 void COMANDOS():
 {}
 {
+<<<<<<< HEAD
   (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF() | < COMMENT > | FUNCAO ()| DO_WHILE())+
+=======
+  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF() | < COMMENT > | FUNCAO ())+
+>>>>>>> 378abca90e90a7f7adbb9313653df53a540f9c97
 }
 
 

@@ -42,9 +42,12 @@ if(a != 1){
 }else{
 	a = 2;
 }
+<<<<<<< HEAD
 do{
  a=1+1;
 }while(a<10)
+=======
+>>>>>>> 378abca90e90a7f7adbb9313653df53a540f9c97
 
 function () {
  a = x + 1;
@@ -56,4 +59,8 @@ function (int a, int b) {
 
 function (int a) {
  a = x + 1;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 378abca90e90a7f7adbb9313653df53a540f9c97
