@@ -116,11 +116,7 @@ void IDENTIFICADOR(): { }
 void COMANDOS():
 {}
 {
-
   (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF() | < COMMENT > | FUNCAO ()| DO_WHILE())+
-
-  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF() | < COMMENT > | FUNCAO ())+
-
 }
 
 
