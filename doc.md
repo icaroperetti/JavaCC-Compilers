@@ -2,7 +2,7 @@
 
 ---
 
-> Vinicius Gazolla Boneto, Icaro Perreti
+> Vinicius Gazolla Boneto, Icaro Peretti
 
 ### Entradas Valídas
 
