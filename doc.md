@@ -20,8 +20,8 @@ Números | [0-9], [0-9]
 Letras | [a-z], [A-Z] 
 Operador lógico | >.<, ==, != 
 Operador aritimético | +, -, *, / 
-Abertura e fechamento de comando | {,} 
-Abertura e fechamento parenteses | (,) 
+Abertura e fechamento de comando | {, } 
+Abertura e fechamento parenteses | (, ) 
 Atribuição | = 
 
 ### Tipos
