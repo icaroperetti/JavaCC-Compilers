@@ -1,6 +1,6 @@
 # JavaCC-Compilers
 
-Repository dedicated to compiler classes at Catarinense Federal Institute
+Repositório dedicado ao trabalho de Compiladores
 
 > ### Configurar JavaCC
 
@@ -19,8 +19,8 @@ eclipse.preferences.version=1
 
  - [x] Comentário (//)
  - [x] Declaração de variável
- - [x] Comandos de repetição (WHILE feito)
- - [x] Comandos de decisão (IF,ELSEIF,ELSE feitos)
+ - [x] Comandos de repetição (WHILE)
+ - [x] Comandos de decisão (IF,ELSEIF,ELSE)
  - [x] Função
  - [ ] Saída de dados 
 
@@ -30,3 +30,8 @@ eclipse.preferences.version=1
  - [x] Do While
  - [ ] If inline /decisão ternária
  - [ ] Comando inovador complexo
+
+> ### Documentação
+	- Visualize [aqui](./doc.md) a documentação em `markdown`.
+	- Visualize [aqui](./doc.pdf) a documentação em `pdf`.
+
