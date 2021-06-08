@@ -32,6 +32,7 @@ eclipse.preferences.version=1
  - [ ] Comando inovador complexo
 
 > ### Documentação
-	- Visualize [aqui](./doc.md) a documentação em `markdown`.
-	- Visualize [aqui](./doc.pdf) a documentação em `pdf`.
+
+- Visualize [aqui](./doc.md) a documentação em `markdown`.
+- Visualize [aqui](./doc.pdf) a documentação em `pdf`.
 
