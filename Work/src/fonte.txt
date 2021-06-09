@@ -45,7 +45,12 @@ if(a != 1){
 
 do{
  a=1+1;
+
 }while(a<14)
+
+}while(a<10)
+
+
 
 function () {
  a = x + 1;
@@ -57,6 +62,7 @@ function (int a, int b) {
 
 function (int a) {
  a = x + 1;
+
 }
 
 switch(b){
@@ -67,3 +73,8 @@ switch(b){
 		b = b+22;
 		break;
 }
+
+
+}
+
+

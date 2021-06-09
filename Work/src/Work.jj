@@ -81,7 +81,7 @@ TOKEN : { < IF : "if" > }
 TOKEN : { < ELSE : "else" > }
 TOKEN : { < ELSEIF : "elseif" > }
 
-		
+
 TOKEN: { < VALUES: < DIGIT >(< DIGIT >)* | "\""< LETTER >(< LETTER >|< DIGIT >|"_")*"\"" > } 
 
 
@@ -119,7 +119,10 @@ void IDENTIFICADOR(): { }
 void COMANDOS():
 {}
 {
+
   (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF() | < COMMENT > | FUNCAO ()|DO_WHILE()|SWITCH_CASE())+
+
+
 }
 
 
