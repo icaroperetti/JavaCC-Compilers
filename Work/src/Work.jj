@@ -30,7 +30,7 @@ SKIP : { " "| "\t" | "\n" | "\r" }
 
 TOKEN:
 {
-  //Tudo menos nova linha e enter
+  
   < COMMENT: "//" (~["\n" , "\r"])* ("\n" | "\r" | "\r\n" | "") > 
 }
 
@@ -83,7 +83,7 @@ TOKEN : { < IF : "if" > }
 TOKEN : { < ELSE : "else" > }
 TOKEN : { < ELSEIF : "elseif" > }
 
-		//numericos								//String entre aspas
+										
 TOKEN: { < VALUES: < DIGIT >(< DIGIT >)* | "\""< LETTER >(< LETTER >|< DIGIT >|"_")*"\"" > } 
 
 
