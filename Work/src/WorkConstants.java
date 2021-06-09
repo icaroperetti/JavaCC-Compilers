@@ -73,11 +73,19 @@ public interface WorkConstants {
   /** RegularExpression Id. */
   int VIRGULA = 36;
   /** RegularExpression Id. */
-  int WHILE = 37;
+  int SWITCH = 37;
   /** RegularExpression Id. */
-  int DO = 38;
+  int CASE = 38;
   /** RegularExpression Id. */
-  int LITERALS = 39;
+  int DOIS_PONTOS = 39;
+  /** RegularExpression Id. */
+  int BREAK = 40;
+  /** RegularExpression Id. */
+  int WHILE = 41;
+  /** RegularExpression Id. */
+  int DO = 42;
+  /** RegularExpression Id. */
+  int LITERALS = 43;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -121,6 +129,10 @@ public interface WorkConstants {
     "<VALUES>",
     "\"=\"",
     "\",\"",
+    "\"switch\"",
+    "\"case\"",
+    "\":\"",
+    "\"break\"",
     "\"while\"",
     "\"do\"",
     "<LITERALS>",

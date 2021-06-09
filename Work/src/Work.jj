@@ -30,7 +30,6 @@ SKIP : { " "| "\t" | "\n" | "\r" }
 
 TOKEN:
 {
-  //Tudo menos nova linha e enter
   < COMMENT: "//" (~["\n" , "\r"])* ("\n" | "\r" | "\r\n" | "") > 
 }
 
@@ -43,7 +42,7 @@ TOKEN: { < INCREMENTO  : (< MAIS >| < MENOS >) > | <  #MAIS:"++" > | < #MENOS:"-
 									
 TOKEN: { < #LETTER:["a"-"z","A"-"Z"] > | < #DIGIT: (["0"-"9"])+ | (["0"-"9"]) + "." (["0"-"9"])+ >}
 
-TOKEN : { < NUMEROS : (["0"-"9"])+","(["0"-"9"])+ > }
+TOKEN : { < NUMEROS : (["0"-"9"])+"."(["0"-"9"])+ > }
 
 TOKEN:
 {
@@ -79,11 +78,10 @@ TOKEN : { < FECHA_CHAVES : "}" >  }
 
 
 TOKEN : { < IF : "if" > }
-
 TOKEN : { < ELSE : "else" > }
 TOKEN : { < ELSEIF : "elseif" > }
 
-		//numericos								//String entre aspas
+		
 TOKEN: { < VALUES: < DIGIT >(< DIGIT >)* | "\""< LETTER >(< LETTER >|< DIGIT >|"_")*"\"" > } 
 
 
@@ -92,16 +90,21 @@ TOKEN : { < ATRIBUICAO : "=" > }
 
 TOKEN : { < VIRGULA : "," > }
 
+TOKEN: { < SWITCH: "switch" > }
+TOKEN: { < CASE:"case" > }
+TOKEN: { < DOIS_PONTOS: ":" > }
+TOKEN: { < BREAK:"break" > }
 
 TOKEN: { < WHILE: "while" > }
-TOKEN: { < DO:"do" >}
+TOKEN: { < DO:"do" > }
+
 
 TOKEN: { < LITERALS: < LETTER >(< LETTER >|< DIGIT >|"_")* > }
 
 void Start() : {} { (COMANDOS()) < EOF > }
 
 
-//---------------DECLARAR VARIAVEIS ------------------------------------------------
+
 void  DECLARAR_VARIAVEL(): { } { (< TIPO ><LITERALS >) }
 
 void ATRIBUICAO_VARIAVEL(): { } { < VALUES >|< NUMEROS >|< LITERALS > | < BOOL > }
@@ -112,15 +115,11 @@ void IDENTIFICADOR(): { }
 }
 
 
-//-------WHILE----------------------------------------------------------------------------
+
 void COMANDOS():
 {}
 {
-<<<<<<< HEAD
-  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF() | < COMMENT > | FUNCAO ()| DO_WHILE())+
-=======
-  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF() | < COMMENT > | FUNCAO ())+
->>>>>>> 378abca90e90a7f7adbb9313653df53a540f9c97
+  (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF() | < COMMENT > | FUNCAO ()|DO_WHILE()|SWITCH_CASE())+
 }
 
 
@@ -178,5 +177,17 @@ void DO_WHILE():
 {
   < DO >ABRE_ESCOPO()< WHILE ><ABRE_PARENTESES >EXP_BOOL()< FECHA_PARENTESES >
 }
-   
+
+void CASE():
+{ }
+{
+  < CASE > (<  VALUES > | < LITERALS >)< DOIS_PONTOS >COMANDOS()< BREAK ><EOL >
+}
+  
+
+void SWITCH_CASE():
+{ }
+{
+  < SWITCH ><ABRE_PARENTESES >< LITERALS ><FECHA_PARENTESES ><ABRE_CHAVES >(CASE())*< FECHA_CHAVES >
+}
 

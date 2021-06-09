@@ -29,25 +29,23 @@ if(a != 1){
 	a = 3;
 }
 
-if(a > 1){
-	b = 3;
+if(a > 15){
+	b = 32;
 }elseif(b < 2){
-	b = 2;
+	b = 27;
 }
 
 if(a != 1){
 	c = 4;
 }elseif(b == 3){
-	b = 5;
+	b = 500;
 }else{
-	a = 2;
+	a = 315;
 }
-<<<<<<< HEAD
+
 do{
  a=1+1;
-}while(a<10)
-=======
->>>>>>> 378abca90e90a7f7adbb9313653df53a540f9c97
+}while(a<14)
 
 function () {
  a = x + 1;
@@ -59,8 +57,13 @@ function (int a, int b) {
 
 function (int a) {
  a = x + 1;
-<<<<<<< HEAD
 }
-=======
+
+switch(b){
+	case 1:
+		b = b+12;
+		break;
+	case 2:
+		b = b+22;
+		break;
 }
->>>>>>> 378abca90e90a7f7adbb9313653df53a540f9c97
