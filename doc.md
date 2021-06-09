@@ -135,5 +135,6 @@ function (int value, double otherValue) {
 }
 ```
 
-  	
+### Relato Aprendizado
 
+  As Dificuldade desse projeto é principalmente determinar os tokens e utilizalos corretamente de forma que não ocorra conflitos e erros, além de claro a configuração do ambiente que não é muito simples. Mas em compensação o trabalho te proporciona uma boa ídeia de como é criado as validações lexicas de uma linguagem e te da uma base sobre como funciona expressões regulares que são constantemente utilizadas em diversos ramos da computação.
