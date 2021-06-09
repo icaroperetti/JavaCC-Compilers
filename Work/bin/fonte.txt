@@ -48,9 +48,6 @@ do{
 
 }while(a<14)
 
-}while(a<10)
-
-
 
 function () {
  a = x + 1;
@@ -73,8 +70,3 @@ switch(b){
 		b = b+22;
 		break;
 }
-
-
-}
-
-

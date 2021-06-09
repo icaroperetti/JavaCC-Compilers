@@ -119,10 +119,7 @@ void IDENTIFICADOR(): { }
 void COMANDOS():
 {}
 {
-
   (WHILE() |  EXP_ARITMETICA() | IDENTIFICADOR()| IF() | < COMMENT > | FUNCAO ()|DO_WHILE()|SWITCH_CASE())+
-
-
 }
 
 
