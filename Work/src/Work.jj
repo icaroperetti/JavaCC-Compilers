@@ -101,7 +101,7 @@ TOKEN: { < LITERALS: < LETTER >(< LETTER >|< DIGIT >|"_")* > }
 void Start() : {} { (COMANDOS()) < EOF > }
 
 
-//---------------DECLARAR VARIAVEIS ------------------------------------------------
+
 void  DECLARAR_VARIAVEL(): { } { (< TIPO ><LITERALS >) }
 
 void ATRIBUICAO_VARIAVEL(): { } { < VALUES >|< NUMEROS >|< LITERALS > | < BOOL > }
@@ -112,7 +112,7 @@ void IDENTIFICADOR(): { }
 }
 
 
-//-------WHILE----------------------------------------------------------------------------
+
 void COMANDOS():
 {}
 {
