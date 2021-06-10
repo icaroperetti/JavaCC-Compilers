@@ -28,9 +28,9 @@ eclipse.preferences.version=1
 > ### Extras
 
  - [x] Switch Case (1.0 ponto)
- - [x] Do While (0.5) ponto
- - [ ] If inline /decisão ternária
- - [ ] Comando inovador complexo
+ - [x] Do While (0.5 ponto) 
+ - [ ] If inline /decisão ternária (0.5 ponto)
+ - [ ] Comando inovador complexo (1.0 ponto)
 
 > ### Documentação
 
