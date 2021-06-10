@@ -22,6 +22,7 @@ eclipse.preferences.version=1
  - [x] Comandos de repetição (WHILE)
  - [x] Comandos de decisão (IF,ELSEIF,ELSE)
  - [x] Função
+ - [x] Utilização de operadores logicos e aritméticos
  - [ ] Saída de dados 
 
 > ### Extras
