@@ -4,6 +4,24 @@
 
 > Vinicius Gazolla Boneto, Icaro Peretti
 
+
+
+> ### O que foi feito ?
+
+ - [x] Comentário (//)
+ - [x] Declaração de variável
+ - [x] Comandos de repetição (WHILE)
+ - [x] Comandos de decisão (IF,ELSEIF,ELSE)
+ - [x] Função
+ - [ ] Saída de dados 
+
+> ### Extras
+
+ - [x] Switch
+ - [x] Do While
+ - [ ] If inline /decisão ternária
+ - [ ] Comando inovador complexo
+
 ### Entradas Valídas
 
 O que faz ?| Entrada
@@ -73,9 +91,9 @@ b++;
 
 ---
 
-> #### Comando de decisão
+> #### Comandos de decisões
 
-Os Comando de decisão são realizados através do `if`, este pode ser encadeado com o `elseif` e/ou `else`. Com exessão do `else`, os outros comandos devem ser seguidos com a condição (operação lógica) declarada entre parentêses e todos devem conter a abertura de chaves.
+Os comandos de decisões são realizados através do `switch case` ou `if`, este pode ser encadeado com o `elseif` e/ou `else`. Com exessão do `else`, os outros comandos devem ser seguidos com a condição (operação lógica) declarada entre parentêses e todos devem conter a abertura de chaves. No caso do `switch ` deve ser estabelecido logo em seguida a variável condicional entre parênteses, e em seguinda seus casos de uso, onde cada caso (`case`) será estabeleico os comando de execução por dois pontos(`:`) e  encerrado com um `break`.
 
 ##### Exemplo
 ```bash
@@ -89,11 +107,21 @@ if (a == 1) {
 } else {
 	//Comandos
 }
+
+// Comando switch case
+switch (a) {
+	case 1:
+		b = b + 1
+		break;
+	case: 2:
+		b = b + 3
+		break;
+}
 ```
 
 ---
 
-> #### Comando de repetição
+> #### Comandos de repetição
 
 Os comandos de repetição podem ser realizados através do `while` e `do while`. Seguidos de uma operação logíca declarada entre parentêses e abertura de chaves.
 
