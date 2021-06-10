@@ -4,6 +4,24 @@
 
 > Vinicius Gazolla Boneto, Icaro Peretti
 
+
+
+> ### O que foi feito ?
+
+ - [x] Comentário (//)
+ - [x] Declaração de variável
+ - [x] Comandos de repetição (WHILE)
+ - [x] Comandos de decisão (IF,ELSEIF,ELSE)
+ - [x] Função
+ - [ ] Saída de dados 
+
+> ### Extras
+
+ - [x] Switch
+ - [x] Do While
+ - [ ] If inline /decisão ternária
+ - [ ] Comando inovador complexo
+
 ### Entradas Valídas
 
 O que faz ?| Entrada
