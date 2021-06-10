@@ -1,0 +1,433 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<TITLE>BNF for Work.jj </TITLE>
+</HEAD>
+<BODY>
+<H1 ALIGN=CENTER>BNF for Work.jj </H1>
+<H2 ALIGN=CENTER>TOKENS</H2>
+<TABLE>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; SKIP : {
+" "
+| "\t"
+| "\n"
+| "\r"
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;COMMENT: "//" (~["\n","\r"])* ("\n" | "\r" | "\r\n" | "")&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;EOL: ";"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;INCREMENTO: &lt;MAIS&gt; | &lt;MENOS&gt;&gt;
+| &lt;#MAIS: "++"&gt;
+| &lt;#MENOS: "--"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;#LETTER: ["a"-"z","A"-"Z"]&gt;
+| &lt;#DIGIT: (["0"-"9"])+ | (["0"-"9"])+ "." (["0"-"9"])+&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;NUMEROS: (["0"-"9"])+ "." (["0"-"9"])+&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;TIPO: &lt;INT&gt; | &lt;STRING&gt; | &lt;BYTE&gt; | &lt;FLOAT&gt; | &lt;DOUBLE&gt; | &lt;BOOLEAN&gt; | &lt;CHAR&gt;&gt;
+| &lt;#INT: "int"&gt;
+| &lt;#STRING: "String"&gt;
+| &lt;#BYTE: "byte"&gt;
+| &lt;#FLOAT: "float"&gt;
+| &lt;#DOUBLE: "double"&gt;
+| &lt;#BOOLEAN: "boolean"&gt;
+| &lt;#CHAR: "char"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;OPER_ARITMETICO: "+" | "-" | "*" | "/"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;OPER_RELACIONAL: "&gt;" | "&lt;" | "==" | "!="&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;FUNCTION: "function"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;BOOL: &lt;TRUE&gt; | &lt;FALSE&gt;&gt;
+| &lt;#TRUE: "true"&gt;
+| &lt;#FALSE: "false"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;ABRE_PARENTESES: "("&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;FECHA_PARENTESES: ")"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;ABRE_CHAVES: "{"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;FECHA_CHAVES: "}"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;IF: "if"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;ELSE: "else"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;ELSEIF: "elseif"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;VALUES: &lt;DIGIT&gt; (&lt;DIGIT&gt;)* | "\"" &lt;LETTER&gt; (&lt;LETTER&gt; | &lt;DIGIT&gt; | "_")* "\""&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;ATRIBUICAO: "="&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;VIRGULA: ","&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;SWITCH: "switch"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;CASE: "case"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;DOIS_PONTOS: ":"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;BREAK: "break"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;WHILE: "while"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;DO: "do"&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+ <!-- Token -->
+ <TR>
+  <TD>
+   <PRE>
+&lt;DEFAULT&gt; TOKEN : {
+&lt;LITERALS: &lt;LETTER&gt; (&lt;LETTER&gt; | &lt;DIGIT&gt; | "_")*&gt;
+}
+
+   </PRE>
+  </TD>
+ </TR>
+</TABLE>
+<H2 ALIGN=CENTER>NON-TERMINALS</H2>
+<TABLE>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod1">Start</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>( <A HREF="#prod2">COMANDOS</A> ) &lt;EOF&gt;</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod3">DECLARAR_VARIAVEL</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>( &lt;TIPO&gt; &lt;LITERALS&gt; )</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod4">ATRIBUICAO_VARIAVEL</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>&lt;VALUES&gt;</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>|</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>&lt;NUMEROS&gt;</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>|</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>&lt;LITERALS&gt;</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>|</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>&lt;BOOL&gt;</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod5">IDENTIFICADOR</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>( <A HREF="#prod3">DECLARAR_VARIAVEL</A> ( &lt;VIRGULA&gt; ( &lt;LITERALS&gt; | &lt;VIRGULA&gt; &lt;LITERALS&gt; )+ | &lt;ATRIBUICAO&gt; <A HREF="#prod4">ATRIBUICAO_VARIAVEL</A> )* &lt;EOL&gt; )</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod2">COMANDOS</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>( <A HREF="#prod6">WHILE</A> | <A HREF="#prod7">EXP_ARITMETICA</A> | <A HREF="#prod5">IDENTIFICADOR</A> | <A HREF="#prod8">IF</A> | &lt;COMMENT&gt; | <A HREF="#prod9">FUNCAO</A> | <A HREF="#prod10">DO_WHILE</A> | <A HREF="#prod11">SWITCH_CASE</A> )+</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod12">CONDICAO</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>( &lt;ABRE_PARENTESES&gt; <A HREF="#prod13">EXP_BOOL</A> &lt;FECHA_PARENTESES&gt; &lt;ABRE_CHAVES&gt; <A HREF="#prod2">COMANDOS</A> &lt;FECHA_CHAVES&gt; )*</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod8">IF</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>&lt;IF&gt; <A HREF="#prod12">CONDICAO</A> ( &lt;ELSEIF&gt; <A HREF="#prod12">CONDICAO</A> )* ( &lt;ELSE&gt; &lt;ABRE_CHAVES&gt; <A HREF="#prod2">COMANDOS</A> &lt;FECHA_CHAVES&gt; )*</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod6">WHILE</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>&lt;WHILE&gt; &lt;ABRE_PARENTESES&gt; <A HREF="#prod13">EXP_BOOL</A> &lt;FECHA_PARENTESES&gt; &lt;ABRE_CHAVES&gt; ( <A HREF="#prod2">COMANDOS</A> )* &lt;FECHA_CHAVES&gt;</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod9">FUNCAO</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>&lt;FUNCTION&gt; &lt;ABRE_PARENTESES&gt; ( <A HREF="#prod14">PARAMETROS</A> )* &lt;FECHA_PARENTESES&gt; &lt;ABRE_CHAVES&gt; ( <A HREF="#prod2">COMANDOS</A> )* &lt;FECHA_CHAVES&gt;</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod14">PARAMETROS</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE><A HREF="#prod3">DECLARAR_VARIAVEL</A> ( &lt;VIRGULA&gt; <A HREF="#prod3">DECLARAR_VARIAVEL</A> )*</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod13">EXP_BOOL</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>( ( &lt;VALUES&gt; | &lt;NUMEROS&gt; | &lt;LITERALS&gt; ) &lt;OPER_RELACIONAL&gt; ( &lt;VALUES&gt; | &lt;NUMEROS&gt; | &lt;LITERALS&gt; ) )</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod7">EXP_ARITMETICA</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>( &lt;LITERALS&gt; ( &lt;INCREMENTO&gt; | &lt;ATRIBUICAO&gt; ( &lt;VALUES&gt; | &lt;NUMEROS&gt; | &lt;LITERALS&gt; ) ) ( &lt;OPER_ARITMETICO&gt; ( &lt;VALUES&gt; | &lt;NUMEROS&gt; | &lt;LITERALS&gt; ) )* &lt;EOL&gt; )</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod15">ABRE_ESCOPO</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>&lt;ABRE_CHAVES&gt; ( <A HREF="#prod2">COMANDOS</A> ) &lt;FECHA_CHAVES&gt;</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod10">DO_WHILE</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>&lt;DO&gt; <A HREF="#prod15">ABRE_ESCOPO</A> &lt;WHILE&gt; &lt;ABRE_PARENTESES&gt; <A HREF="#prod13">EXP_BOOL</A> &lt;FECHA_PARENTESES&gt;</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod16">CASE</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>&lt;CASE&gt; ( &lt;VALUES&gt; | &lt;LITERALS&gt; ) &lt;DOIS_PONTOS&gt; <A HREF="#prod2">COMANDOS</A> &lt;BREAK&gt; &lt;EOL&gt;</TD>
+</TR>
+<TR>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod11">SWITCH_CASE</A></TD>
+<TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>&lt;SWITCH&gt; &lt;ABRE_PARENTESES&gt; &lt;LITERALS&gt; &lt;FECHA_PARENTESES&gt; &lt;ABRE_CHAVES&gt; ( <A HREF="#prod16">CASE</A> )* &lt;FECHA_CHAVES&gt;</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

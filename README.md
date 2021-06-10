@@ -15,21 +15,24 @@ SUPPRESS_WARNINGS=false
 eclipse.preferences.version=1
 ```
 
-> ### O que já foi feito ?
+> ### O que já foi feito ? 
+
+Valendo 7:
 
  - [x] Comentário (//)
  - [x] Declaração de variável
  - [x] Comandos de repetição (WHILE)
  - [x] Comandos de decisão (IF,ELSEIF,ELSE)
  - [x] Função
+ - [x] Utilização de operadores logicos e aritméticos
  - [ ] Saída de dados 
 
 > ### Extras
 
- - [x] Switch
- - [x] Do While
- - [ ] If inline /decisão ternária
- - [ ] Comando inovador complexo
+ - [x] Switch Case (1.0 ponto)
+ - [x] Do While (0.5 ponto) 
+ - [ ] If inline /decisão ternária (0.5 ponto)
+ - [ ] Comando inovador complexo (1.0 ponto)
 
 > ### Documentação
 
