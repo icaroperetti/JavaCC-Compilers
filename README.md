@@ -15,7 +15,7 @@ SUPPRESS_WARNINGS=false
 eclipse.preferences.version=1
 ```
 
-> ### O que já foi feito ?
+> ### O que já foi feito ? (Vale 7)
 
  - [x] Comentário (//)
  - [x] Declaração de variável
@@ -27,8 +27,8 @@ eclipse.preferences.version=1
 
 > ### Extras
 
- - [x] Switch Case
- - [x] Do While
+ - [x] Switch Case (1.0 ponto)
+ - [x] Do While (0.5) ponto
  - [ ] If inline /decisão ternária
  - [ ] Comando inovador complexo
 
