@@ -15,7 +15,9 @@ SUPPRESS_WARNINGS=false
 eclipse.preferences.version=1
 ```
 
-> ### O que já foi feito ? (Vale 7)
+> ### O que já foi feito ? 
+
+Valendo 7:
 
  - [x] Comentário (//)
  - [x] Declaração de variável
