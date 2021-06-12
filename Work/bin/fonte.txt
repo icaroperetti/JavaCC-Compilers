@@ -1,4 +1,4 @@
-int a = true;
+boolean a = true;
 double b = 2, c=0;
 //teste
 
