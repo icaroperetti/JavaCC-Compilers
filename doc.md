@@ -22,7 +22,11 @@
  - [ ] If inline /decisão ternária
  - [ ] Comando inovador complexo
 
-### Entradas Valídas
+
+<div style="page-break-after: always;"></div>
+
+
+### Entradas Validas
 
 O que faz ?| Entrada
 ---------------------------| --------
@@ -37,9 +41,9 @@ Repetição | while, do while
 Números | [0-9], [0-9] 
 Letras | [a-z], [A-Z] 
 Operador lógico | >.<, ==, != 
-Operador aritimético | +, -, *, / 
+Operador aritmético | +, -, *, / 
 Abertura e fechamento de comando | {, } 
-Abertura e fechamento parenteses | (, ) 
+Abertura e fechamento parênteses | (, ) 
 Atribuição | = 
 
 ### Tipos
@@ -51,7 +55,9 @@ int | Números Inteiros
 float, double | Números Decimais 
 String | Texto 
 byte | byte 
-char | Caracter 
+char | Carácter 
+
+<div style="page-break-after: always;"></div>
 
 ### Instruções
 
@@ -77,9 +83,9 @@ int b, c, d, e = 0;
 ```
 
 ---
-> #### Expressões aritimética
+> #### Expressões aritmética
 
-As expressões aritiméticas são realizas através dos operadores aritiméticos e/ou dos operadores de incremento e decremento.
+As expressões aritméticas são realizas através dos operadores aritméticos e/ou dos operadores de incremento e decremento.
 
 ##### Exemplo
 ```bash
@@ -93,7 +99,7 @@ b++;
 
 > #### Comandos de decisões
 
-Os comandos de decisões são realizados através do `switch case` ou `if`, este pode ser encadeado com o `elseif` e/ou `else`. Com exessão do `else`, os outros comandos devem ser seguidos com a condição (operação lógica) declarada entre parentêses e todos devem conter a abertura de chaves. No caso do `switch ` deve ser estabelecido logo em seguida a variável condicional entre parênteses, e em seguinda seus casos de uso, onde cada caso (`case`) será estabeleico os comando de execução por dois pontos(`:`) e  encerrado com um `break`.
+Os comandos de decisões são realizados através do `switch case` ou `if`, este pode ser encadeado com o `elseif` e/ou `else`. Com exceção do `else`, os outros comandos devem ser seguidos com a condição (operação lógica) declarada entre parênteses e todos devem conter a abertura de chaves. No caso do `switch ` deve ser estabelecido logo em seguida a variável condicional entre parênteses, e em seguida seus casos de uso, onde cada caso (`case`) será estabelecido os comando de execução por dois pontos(`:`) e  encerrado com um `break`.
 
 ##### Exemplo
 ```bash
@@ -123,7 +129,7 @@ switch (a) {
 
 > #### Comandos de repetição
 
-Os comandos de repetição podem ser realizados através do `while` e `do while`. Seguidos de uma operação logíca declarada entre parentêses e abertura de chaves.
+Os comandos de repetição podem ser realizados através do `while` e `do while`. Seguidos de uma operação lógica declarada entre parênteses e abertura de chaves.
 
 ##### Exemplo
 ```bash
@@ -147,7 +153,7 @@ do {
 
 > #### Funções
 
-As funções devem ser iniciadas com a palavra `function`. Seguido com os parâmetros declarados entre parentêses e abertura de chaves.
+As funções devem ser iniciadas com a palavra `function`. Seguido com os parâmetros declarados entre parênteses e abertura de chaves.
 
 ###### Exemplo
 ```bash
@@ -165,4 +171,4 @@ function (int value, double otherValue) {
 
 ### Relato Aprendizado
 
-  As Dificuldade desse projeto é principalmente determinar os tokens e utilizalos corretamente de forma que não ocorra conflitos e erros, além de claro a configuração do ambiente que não é muito simples. Mas em compensação o trabalho te proporciona uma boa ídeia de como é criado as validações lexicas de uma linguagem e te da uma base sobre como funciona expressões regulares que são constantemente utilizadas em diversos ramos da computação.
+  As Dificuldade desse projeto é principalmente determinar os tokens e utiliza-lós corretamente de forma que não ocorra conflitos e erros, além de claro a configuração do ambiente que não é muito simples. Mas em compensação o trabalho te proporciona uma boa ideia de como é criado as validações léxicas de uma linguagem e te da uma base sobre como funciona expressões regulares que são constantemente utilizadas em diversos ramos da computação.
