@@ -38,7 +38,7 @@ TOKEN:
 TOKEN :{ < EOL : ";" >}
 
 
-TOKEN: { < INCREMENTO  : (< MAIS >| < MENOS >) > | <  #MAIS:"++" > | < #MENOS:"--" > }
+TOKEN: { < INC_DEC  : (< MAIS >| < MENOS >) > | <  #MAIS:"++" > | < #MENOS:"--" > }
 
 									
 TOKEN: { < #LETTER:["a"-"z","A"-"Z"] > | < #DIGIT: (["0"-"9"])+ | (["0"-"9"]) + "." (["0"-"9"])+ >}
@@ -164,7 +164,7 @@ void EXP_BOOL():
 void EXP_ARITMETICA():
 {}
 {
-  ( < LITERALS >(< INCREMENTO >|< ATRIBUICAO >( < VALUES > | < NUMEROS > | < LITERALS >  )) (< OPER_ARITMETICO > ( < VALUES > | < NUMEROS > | < LITERALS > ))* < EOL > )
+  ( < LITERALS >(< INC_DEC >|< ATRIBUICAO >( < VALUES > | < NUMEROS > | < LITERALS >  )) (< OPER_ARITMETICO > ( < VALUES > | < NUMEROS > | < LITERALS > ))* < EOL > )
 }
 
 void ABRE_ESCOPO():
@@ -191,4 +191,3 @@ void SWITCH_CASE():
 {
   < SWITCH ><ABRE_PARENTESES >< LITERALS ><FECHA_PARENTESES ><ABRE_CHAVES >(CASE())*< FECHA_CHAVES >
 }
-

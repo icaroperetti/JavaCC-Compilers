@@ -384,8 +384,8 @@ public class Work implements WorkConstants {
     try {
       jj_consume_token(LITERALS);
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case INCREMENTO:
-        jj_consume_token(INCREMENTO);
+      case INC_DEC:
+        jj_consume_token(INC_DEC);
         break;
       case ATRIBUICAO:
         jj_consume_token(ATRIBUICAO);

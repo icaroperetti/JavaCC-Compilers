@@ -13,7 +13,7 @@ public interface WorkConstants {
   /** RegularExpression Id. */
   int EOL = 6;
   /** RegularExpression Id. */
-  int INCREMENTO = 7;
+  int INC_DEC = 7;
   /** RegularExpression Id. */
   int MAIS = 8;
   /** RegularExpression Id. */
@@ -99,7 +99,7 @@ public interface WorkConstants {
     "\"\\r\"",
     "<COMMENT>",
     "\";\"",
-    "<INCREMENTO>",
+    "<INC_DEC>",
     "\"++\"",
     "\"--\"",
     "<LETTER>",
