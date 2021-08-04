@@ -39,3 +39,4 @@ Valendo 7:
 - Visualize [aqui](./doc.md) a documentação em `markdown`.
 - Visualize [aqui](./doc.pdf) a documentação em `pdf`.
 
+-Obs: Tem um bug que algum dia será corrigido
