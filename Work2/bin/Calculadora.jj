@@ -1,0 +1,100 @@
+options
+{
+  JDK_VERSION = "1.5";
+  STATIC = false;
+}
+ 
+PARSER_BEGIN(Calculadora)
+
+import java.lang.Math;
+
+public class Calculadora
+{
+  private void emit(String s)
+  {
+    System.out.print(s + " ");
+  }
+}
+PARSER_END(Calculadora)
+ 
+SKIP :
+{
+" "
+| "\r"
+| "\t"
+}
+ 
+TOKEN: {<NUMBER: <DIGITS> | <DIGITS> "." <DIGITS> >}
+ 
+TOKEN: {< DIGITS: (["0" - "9"])+ >}
+ 
+TOKEN: { < MAIS: "+" >}
+
+TOKEN: {< MENOS: "-" >}
+ 
+TOKEN: {< DIVISAO: "/" >}
+ 
+TOKEN: {< PRODUTO: "*" >}
+ 
+TOKEN: {< ABRIR_PARENTESES: "(" >}
+ 
+TOKEN: {< FECHAR_PARENTESES: ")" >}
+
+ 
+TOKEN: {< EXP: "^" >}
+ 
+ 
+double Start():
+{
+    double value = 0;
+}
+{
+    (value = expressao() < EOF >)* < EOF >
+ 
+	{
+	  return value;
+   }
+}
+ 
+double unitario():
+{
+    Token t;
+    Double d;
+}
+{
+    (
+        t = <NUMBER>
+        {
+            return Double.parseDouble(t.toString());
+        }
+ 
+        |
+ 
+        <ABRIR_PARENTESES> d = expressao() <FECHAR_PARENTESES> { return d; }| <MENOS> d = unitario(){ return -d; })
+}
+ 
+double termo():
+{
+   double a;
+   double b;
+}
+{
+    a = unitario()
+    (<DIVISAO> b = termo() { a /= b ; } | <PRODUTO>b = termo() { a *= b; }| <EXP>b = termo() { a = Math.pow(a, b); })*
+    {
+        return a;
+    }
+}
+ 
+double expressao():
+{
+   double a;
+   double b;
+}
+{
+    a = termo()
+    (<MAIS> b = termo() { a += b; } | <MENOS>  b = termo() { a -= b; })*
+    {
+        return a;
+    }
+}
